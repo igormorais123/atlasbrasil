@@ -31,6 +31,7 @@ Esta pasta contém a documentação de evolução do Atlas Brasil como vitrine p
 | [`plano-helena-oracle-atlas.md`](plano-helena-oracle-atlas.md) | Integração metodológica de Helena e Oracle Gnosis |
 | [`FORECAST_LEDGER_PUBLICO.md`](FORECAST_LEDGER_PUBLICO.md) | Regra pública para previsões verificáveis |
 | [`CONTRIBUTING_ATLAS_PACKS.md`](CONTRIBUTING_ATLAS_PACKS.md) | Guia seguro de contribuição com pacotes Atlas Sim |
+| [`DEPLOY_ATLAS_STATIC.md`](DEPLOY_ATLAS_STATIC.md) | Guia de deploy estático seguro para GitHub Pages, Vercel ou Netlify |
 
 ## Schemas públicos
 

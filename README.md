@@ -46,6 +46,8 @@ O fechamento público para PR está em [`docs/EXECUCAO_M27_M36_FECHAMENTO_PUBLIC
 
 O registro de publicação do PR está em [`reports/PUBLICACAO_PR_ATLAS_SIM_2026-05-04.md`](reports/PUBLICACAO_PR_ATLAS_SIM_2026-05-04.md), e o guia de deploy estático está em [`docs/DEPLOY_ATLAS_STATIC.md`](docs/DEPLOY_ATLAS_STATIC.md).
 
+O resumo visual em HTML para apresentar ao criador está em [`reports/ATLAS_SIM_OVERVIEW_CRIADOR.html`](reports/ATLAS_SIM_OVERVIEW_CRIADOR.html).
+
 A metodologia pública compartilhável da INTEIA está em [`docs/METODOLOGIA_PUBLICA_INTEIA.md`](docs/METODOLOGIA_PUBLICA_INTEIA.md).
 
 O parecer final de validação e aprovação documental Helena/Efesto está em [`docs/PARECER_APROVACAO_EXECUCAO.md`](docs/PARECER_APROVACAO_EXECUCAO.md).

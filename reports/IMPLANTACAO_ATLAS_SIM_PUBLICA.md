@@ -17,6 +17,7 @@ O Atlas Brasil agora possui uma camada publica de inteligencia territorial com:
 - validação reproduzível.
 - auditoria técnica e de navegador registrada em `AUDITORIA_ATLAS_SIM_2026-05-04.md`.
 - publicacao em branch e PR registrada em `PUBLICACAO_PR_ATLAS_SIM_2026-05-04.md`.
+- resumo visual para apresentar ao criador em `ATLAS_SIM_OVERVIEW_CRIADOR.html`.
 
 ## Garantias
 

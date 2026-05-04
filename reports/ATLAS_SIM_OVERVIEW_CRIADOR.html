@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Sim x INTEIA | Visão para o criador</title>
+  <style>
+    :root {
+      --bg: #08100f;
+      --panel: #101a18;
+      --panel-2: #14231f;
+      --ink: #edf7f2;
+      --muted: #a8bbb2;
+      --line: rgba(237, 247, 242, 0.16);
+      --green: #a9d65c;
+      --cyan: #51d1c2;
+      --gold: #e6c15d;
+      --red: #ef786d;
+      --blue: #7db7ff;
+      --shadow: 0 18px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: var(--cyan); }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      align-items: end;
+      padding: 48px 0 34px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(81, 209, 194, 0.18), transparent 32%),
+        radial-gradient(circle at 72% 20%, rgba(169, 214, 92, 0.16), transparent 34%),
+        linear-gradient(180deg, transparent, rgba(8, 16, 15, 0.84));
+      pointer-events: none;
+    }
+
+    .hero > * { position: relative; }
+
+    .kicker {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 920px;
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 20px;
+      margin: 24px 0 0;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 12px;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin: 28px 0 42px;
+    }
+
+    .toc a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+      padding: 12px;
+    }
+
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .card strong {
+      color: var(--ink);
+    }
+
+    .card small,
+    .eyebrow {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .metric {
+      font-size: 36px;
+      font-weight: 950;
+      line-height: 1;
+      color: var(--green);
+      margin: 8px 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .before {
+      border-color: rgba(239, 120, 109, 0.35);
+      background: linear-gradient(180deg, rgba(239, 120, 109, 0.08), var(--panel));
+    }
+
+    .after {
+      border-color: rgba(169, 214, 92, 0.35);
+      background: linear-gradient(180deg, rgba(169, 214, 92, 0.08), var(--panel));
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li { margin: 8px 0; }
+
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #0b1513;
+      padding: 18px;
+      overflow-x: auto;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(160px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+      min-width: 860px;
+    }
+
+    .flow.three {
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      min-width: 720px;
+    }
+
+    .node {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-2);
+      padding: 14px;
+      position: relative;
+    }
+
+    .node::after {
+      content: "→";
+      color: var(--cyan);
+      font-weight: 900;
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .flow .node:last-child::after { content: ""; }
+
+    .node b {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .node span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .layer {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1.1fr;
+      gap: 12px;
+      min-width: 900px;
+    }
+
+    .layer-col {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .layer-col h3 {
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .stack div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tree {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .tree ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tree li {
+      border-left: 1px solid var(--line);
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 12px;
+      padding: 5px 0 5px 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    th {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    code {
+      color: var(--cyan);
+      background: rgba(81, 209, 194, 0.08);
+      border: 1px solid rgba(81, 209, 194, 0.2);
+      border-radius: 6px;
+      padding: 2px 5px;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .callout {
+      border: 1px solid rgba(230, 193, 93, 0.35);
+      border-radius: 8px;
+      background: rgba(230, 193, 93, 0.08);
+      padding: 16px;
+    }
+
+    .ok { color: var(--green); }
+    .warn { color: var(--gold); }
+    .danger { color: var(--red); }
+    .blue { color: var(--blue); }
+
+    .footer {
+      padding: 34px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .page { padding: 18px; }
+      .hero { min-height: 70vh; }
+      .split { grid-template-columns: 1fr; }
+      .flow, .flow.three, .layer { min-width: 760px; }
+    }
+
+    @media print {
+      body { background: white; color: #111; }
+      .hero::before { display: none; }
+      .card, .diagram, table, .toc a { box-shadow: none; }
+      .page { max-width: none; }
+      a { color: #0645ad; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="kicker">Atlas Brasil x INTEIA | resumo visual para o criador</div>
+        <h1>O que foi agregado ao Atlas Brasil</h1>
+        <p class="lead">
+          O projeto saiu de um mapa territorial estático com dados públicos e ganhou uma camada pública de inteligência:
+          Atlas Sim, pacotes auditáveis, simulações com limites, evidence ledger, forecast ledger, city packs e documentação de PR/deploy.
+        </p>
+        <div class="meta">
+          <span class="pill">Branch: codex/atlas-sim-inteia-publica</span>
+          <span class="pill">PR: #1 draft</span>
+          <span class="pill">Sergipe: profundidade</span>
+          <span class="pill">São Paulo: escala</span>
+          <span class="pill">Status: validado para revisão</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Sumário">
+      <a href="#resumo">Resumo</a>
+      <a href="#antes-depois">Antes e depois</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#como-usar">Como usar</a>
+      <a href="#dados">Dados e arquivos</a>
+      <a href="#seguranca">Segurança</a>
+      <a href="#validacao">Validação</a>
+      <a href="#proximos-passos">Próximos passos</a>
+    </nav>
+
+    <section id="resumo">
+      <h2>Resumo executivo</h2>
+      <div class="grid">
+        <article class="card">
+          <small>Nova camada</small>
+          <h3>Atlas Sim</h3>
+          <p>Um painel de inteligência territorial que aparece dentro do Atlas atual e consome pacotes JSON estáticos, sem backend e sem chave de IA no navegador.</p>
+        </article>
+        <article class="card">
+          <small>Cobertura inicial</small>
+          <div class="metric">2 + 5</div>
+          <p>2 estados com pacotes públicos: Sergipe e São Paulo. 5 cidades com city packs: Aracaju, Estância, Itabaiana, Lagarto e Campinas.</p>
+        </article>
+        <article class="card">
+          <small>Método</small>
+          <h3>Fato, inferência, simulação e limite</h3>
+          <p>Cada leitura importante foi separada por tipo de evidência, confiança, fonte e limite para evitar “IA dizendo certeza” sem base.</p>
+        </article>
+        <article class="card">
+          <small>Entrega</small>
+          <h3>PR público pronto</h3>
+          <p>Branch publicada, PR aberto em draft, auditoria registrada e guia de deploy estático preparado.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="antes-depois">
+      <h2>Antes e depois</h2>
+      <div class="split">
+        <article class="card before">
+          <small>Projeto inicial</small>
+          <h3>Atlas Brasil como mapa interativo</h3>
+          <ul class="list">
+            <li>Mapa/globo com estados e municípios.</li>
+            <li>População, PIB, política, educação e busca territorial.</li>
+            <li>Dados consumidos diretamente de APIs públicas.</li>
+            <li>Sem pacotes locais de inteligência.</li>
+            <li>Sem evidence ledger, simulação, forecast ou metodologia pública.</li>
+          </ul>
+        </article>
+        <article class="card after">
+          <small>Agora</small>
+          <h3>Atlas Brasil com inteligência territorial pública</h3>
+          <ul class="list">
+            <li>Painel Atlas Sim integrado à UI.</li>
+            <li>Pacotes estáticos por estado e cidade.</li>
+            <li>Simulações territoriais e por domínio.</li>
+            <li>Matriz de decisão para farmácia, padaria, clínica, curso e carreira técnica.</li>
+            <li>Forecast ledger, opportunity cards, clusters regionais e auditoria de publicação.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="arquitetura">
+      <h2>Arquitetura adicionada</h2>
+      <p>A camada privada da INTEIA não foi publicada. O que entrou no Atlas é a superfície pública: dados oficiais, pacotes sanitizados, simulações agregadas e validação reproduzível.</p>
+      <div class="diagram">
+        <div class="layer">
+          <div class="layer-col">
+            <h3>Motor privado INTEIA</h3>
+            <div class="stack">
+              <div>Helena / Oracle / método</div>
+              <div>Vox Sintética e agentes privados</div>
+              <div>Paperclip / auditoria interna</div>
+              <div>Red team e sanitização</div>
+            </div>
+          </div>
+          <div class="layer-col">
+            <h3>Ponte pública segura</h3>
+            <div class="stack">
+              <div>state-pack.json</div>
+              <div>city-pack.json</div>
+              <div>evidence-ledger.json</div>
+              <div>manifest.json com hashes</div>
+              <div>atlas-registry.json</div>
+            </div>
+          </div>
+          <div class="layer-col">
+            <h3>Atlas Brasil público</h3>
+            <div class="stack">
+              <div>Mapa e busca territorial</div>
+              <div>Painel Atlas Sim</div>
+              <div>Relatórios markdown/html</div>
+              <div>Validação local</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 22px;">Fluxo de carregamento no frontend</h3>
+      <div class="diagram">
+        <div class="flow">
+          <div class="node"><b>Usuário busca território</b><span>Ex.: Sergipe, São Paulo, Campinas.</span></div>
+          <div class="node"><b>Atlas consulta registry</b><span><code>data/atlas-registry.json</code></span></div>
+          <div class="node"><b>Carrega pacotes estáticos</b><span>State pack, city pack, simulações, forecast e relatórios.</span></div>
+          <div class="node"><b>Renderiza Atlas Sim</b><span>Forças, riscos, evidências, triagens e links.</span></div>
+          <div class="node"><b>Usuário abre relatório</b><span>Markdown público com método e limites.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="funcionalidades">
+      <h2>Funcionalidades agregadas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Funcionalidade</th>
+            <th>O que faz</th>
+            <th>Onde aparece</th>
+            <th>Valor para o criador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Atlas Sim Panel</strong></td>
+            <td>Mostra veredito, score territorial, confiança, forças, riscos, simulação e próxima ação.</td>
+            <td>Dentro do painel lateral do Atlas.</td>
+            <td>Transforma mapa em ferramenta de leitura territorial.</td>
+          </tr>
+          <tr>
+            <td><strong>Evidence Ledger</strong></td>
+            <td>Lista claims com tipo, confiança, fonte e limite.</td>
+            <td>Bloco expansível no Atlas Sim.</td>
+            <td>Evita afirmações soltas e aumenta auditabilidade.</td>
+          </tr>
+          <tr>
+            <td><strong>City Packs</strong></td>
+            <td>Pacotes municipais com indicadores, diagnóstico, simulação e relatório.</td>
+            <td>Aracaju, Estância, Itabaiana, Lagarto e Campinas.</td>
+            <td>Permite levar o Atlas do estado para a cidade.</td>
+          </tr>
+          <tr>
+            <td><strong>Matriz por domínio</strong></td>
+            <td>Compara farmácia, padaria, clínica, curso técnico e carreira técnica por cidade.</td>
+            <td>Sergipe estadual.</td>
+            <td>Responde perguntas práticas sem fingir recomendação final.</td>
+          </tr>
+          <tr>
+            <td><strong>Clusters regionais</strong></td>
+            <td>Divide SP em metrópole, eixo Campinas, interior agro-serviços e litoral/logística.</td>
+            <td>São Paulo estadual.</td>
+            <td>Impede leitura simplista de um estado gigante.</td>
+          </tr>
+          <tr>
+            <td><strong>Opportunity Cards</strong></td>
+            <td>Triagens de oportunidades com score, postura, risco e próxima validação.</td>
+            <td>São Paulo estadual.</td>
+            <td>Mostra como o Atlas pode virar motor de decisão local.</td>
+          </tr>
+          <tr>
+            <td><strong>Forecast Ledger</strong></td>
+            <td>Registra previsões verificáveis com horizonte, confiança e métrica de resolução.</td>
+            <td>São Paulo estadual.</td>
+            <td>Transforma “poder preditivo” em disciplina auditável.</td>
+          </tr>
+          <tr>
+            <td><strong>Registry público</strong></td>
+            <td>Índice de estados, cidades, relatórios e pacotes opcionais.</td>
+            <td><code>data/atlas-registry.json</code></td>
+            <td>Facilita expansão sem hardcode no frontend.</td>
+          </tr>
+          <tr>
+            <td><strong>Validação pública</strong></td>
+            <td>Checa JSON, JS, manifests, hashes e marcadores sensíveis.</td>
+            <td><code>scripts/validate-public.ps1</code></td>
+            <td>Cria gate simples antes de PR/deploy.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="como-usar">
+      <h2>Como usar no Atlas agora</h2>
+      <div class="diagram">
+        <div class="flow three">
+          <div class="node"><b>1. Abrir o app</b><span>Servir o projeto e abrir <code>http://localhost:8000/</code>.</span></div>
+          <div class="node"><b>2. Buscar território</b><span>Usar a busca: Sergipe, São Paulo, Campinas, Aracaju etc.</span></div>
+          <div class="node"><b>3. Ler Atlas Sim</b><span>O painel carrega os pacotes públicos daquele estado/cidade.</span></div>
+        </div>
+      </div>
+      <div class="grid" style="margin-top: 16px;">
+        <article class="card">
+          <small>Teste 1</small>
+          <h3>Buscar Sergipe</h3>
+          <p>Mostra veredito estadual, comparação municipal e matriz por domínio para Aracaju, Itabaiana, Lagarto e Estância.</p>
+        </article>
+        <article class="card">
+          <small>Teste 2</small>
+          <h3>Buscar Aracaju</h3>
+          <p>Mostra city pack municipal com triagem de farmácia, padaria, clínica e curso técnico.</p>
+        </article>
+        <article class="card">
+          <small>Teste 3</small>
+          <h3>Buscar São Paulo</h3>
+          <p>Mostra piloto de escala, clusters regionais, comparação de cidades, opportunity cards e forecast ledger.</p>
+        </article>
+        <article class="card">
+          <small>Teste 4</small>
+          <h3>Buscar Campinas</h3>
+          <p>Mostra primeira cidade-piloto paulista com triagem de clínica, curso técnico, farmácia e carreira técnica.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="dados">
+      <h2>Mapa dos arquivos adicionados</h2>
+      <div class="tree">
+        <article class="card">
+          <h3>Dados públicos</h3>
+          <ul>
+            <li>data/atlas-registry.json</li>
+            <li>data/states/SE/state-pack.json</li>
+            <li>data/states/SE/cities/*/city-pack.json</li>
+            <li>data/states/SE/comparisons/*.json</li>
+            <li>data/states/SP/state-pack.json</li>
+            <li>data/states/SP/cities/3509502/city-pack.json</li>
+            <li>data/states/SP/opportunity-cards.json</li>
+            <li>data/states/SP/forecast-ledger.json</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Contratos e método</h3>
+          <ul>
+            <li>docs/PRD_ATLAS_PARCEIRA_INTEIA.md</li>
+            <li>docs/METODOLOGIA_PUBLICA_INTEIA.md</li>
+            <li>docs/schemas/*.schema.json</li>
+            <li>docs/CONTRIBUTING_ATLAS_PACKS.md</li>
+            <li>docs/FORECAST_LEDGER_PUBLICO.md</li>
+            <li>docs/DEPLOY_ATLAS_STATIC.md</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Relatórios e auditoria</h3>
+          <ul>
+            <li>reports/sergipe/*.md</li>
+            <li>reports/sao-paulo/*.md</li>
+            <li>reports/IMPLANTACAO_ATLAS_SIM_PUBLICA.md</li>
+            <li>reports/AUDITORIA_ATLAS_SIM_2026-05-04.md</li>
+            <li>reports/PUBLICACAO_PR_ATLAS_SIM_2026-05-04.md</li>
+            <li>reports/ATLAS_SIM_OVERVIEW_CRIADOR.html</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="seguranca">
+      <h2>O que foi protegido</h2>
+      <div class="split">
+        <article class="card after">
+          <small>Pode ser público</small>
+          <ul class="list">
+            <li>Dados oficiais e agregados.</li>
+            <li>Coortes sintéticas agregadas.</li>
+            <li>Simulações sanitizadas.</li>
+            <li>Evidence ledgers.</li>
+            <li>Manifests com hashes.</li>
+            <li>Metodologia e schemas.</li>
+          </ul>
+        </article>
+        <article class="card before">
+          <small>Ficou fora do repo</small>
+          <ul class="list">
+            <li>Chaves, tokens e credenciais.</li>
+            <li>Prompts internos.</li>
+            <li>Logs e memórias operacionais.</li>
+            <li>Bases brutas e personas individuais.</li>
+            <li>Caminhos locais e artefatos privados.</li>
+            <li>Relatórios comerciais ou de cliente.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout" style="margin-top: 16px;">
+        <strong class="warn">Regra central:</strong>
+        <p>O Atlas público mostra a superfície compartilhável da tecnologia. O motor privado INTEIA permanece protegido. A ponte é feita por pacote sanitizado, schema, manifest e evidence ledger.</p>
+      </div>
+    </section>
+
+    <section id="validacao">
+      <h2>Validação e publicação</h2>
+      <div class="grid">
+        <article class="card">
+          <small>Validação local</small>
+          <h3><code>scripts/validate-public.ps1</code></h3>
+          <p>Valida JSON, JavaScript, manifests com hashes e varredura de marcadores sensíveis.</p>
+        </article>
+        <article class="card">
+          <small>Auditoria de navegador</small>
+          <h3>Desktop, mobile e in-app browser</h3>
+          <p>Testou os fluxos de Sergipe, Aracaju, Itabaiana, Lagarto, Estância, São Paulo e Campinas.</p>
+        </article>
+        <article class="card">
+          <small>PR</small>
+          <h3><a href="https://github.com/igormorais123/atlasbrasil/pull/1">github.com/igormorais123/atlasbrasil/pull/1</a></h3>
+          <p>PR aberto em draft, branch publicada e documentação de deploy incluída.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="proximos-passos">
+      <h2>Próximos passos recomendados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Prioridade</th>
+            <th>Próximo passo</th>
+            <th>Por quê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P0</td>
+            <td>Revisar e fazer merge do PR #1</td>
+            <td>Coloca a camada Atlas Sim pública na branch principal.</td>
+          </tr>
+          <tr>
+            <td>P0</td>
+            <td>Habilitar GitHub Pages ou outro host estático</td>
+            <td>Publica a vitrine para demonstração sem backend.</td>
+          </tr>
+          <tr>
+            <td>P1</td>
+            <td>Adicionar RAIS/CAGED, CNES e INEP</td>
+            <td>Aumenta a força das conclusões sobre carreira, saúde e negócios.</td>
+          </tr>
+          <tr>
+            <td>P1</td>
+            <td>Adicionar indicador explícito de carregamento de cidades</td>
+            <td>Melhora a experiência quando a busca municipal ainda está indexando.</td>
+          </tr>
+          <tr>
+            <td>P2</td>
+            <td>Assistente territorial com backend privado</td>
+            <td>Permite conversa sobre cidade/estado sem expor chave ou motor privado no frontend.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="footer">
+      <p>
+        Documento gerado para explicar a contribuição Atlas Sim / INTEIA ao criador do Atlas Brasil.
+        Arquivo standalone: <code>reports/ATLAS_SIM_OVERVIEW_CRIADOR.html</code>.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

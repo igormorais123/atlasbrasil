@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2800308",
+  "name": "Aracaju",
+  "generatedAt": "2026-05-04T06:45:00Z",
+  "domains": [
+    {
+      "id": "pharmacy",
+      "label": "Farmácia",
+      "readiness": 52,
+      "evidence": 36,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Escala urbana e papel de capital justificam investigação, mas faltam bairro, renda, concorrência e acesso a saúde.",
+      "missingData": ["bairros", "renda", "idade", "concorrência", "fluxo", "acesso a saúde"],
+      "risk": "Recomendação sem ponto e concorrência pode induzir decisão ruim."
+    },
+    {
+      "id": "bakery",
+      "label": "Padaria",
+      "readiness": 50,
+      "evidence": 34,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "População alta permite triagem de serviços de proximidade.",
+      "missingData": ["densidade residencial", "fluxo diário", "concorrência", "aluguel", "hábitos locais"],
+      "risk": "Demanda de bairro pode divergir da média municipal."
+    },
+    {
+      "id": "clinic",
+      "label": "Clínica",
+      "readiness": 51,
+      "evidence": 33,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Capital concentra serviços e população, mas especialidade depende de lacuna real de atendimento.",
+      "missingData": ["idade", "renda", "especialidades existentes", "SUS", "planos", "regulação"],
+      "risk": "Sem mapa de oferta, a hipótese pode superestimar demanda."
+    },
+    {
+      "id": "technical_course",
+      "label": "Curso técnico",
+      "readiness": 49,
+      "evidence": 32,
+      "stance": "faltam_dados",
+      "confidence": "baixa",
+      "why": "Escala urbana ajuda, mas faltam setores empregadores e empregabilidade por curso.",
+      "missingData": ["emprego formal", "setores", "juventude", "renda", "concorrentes educacionais"],
+      "risk": "Curso sem demanda de mercado local vira baixa empregabilidade."
+    }
+  ],
+  "disclaimer": "Triagem sintética agregada. Não é conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": ["Sem dados por bairro.", "Sem concorrência.", "Sem custos de ponto.", "Sem renda local detalhada."],
+  "sources": ["city-pack.json", "simulations/business-base.json"]
+}

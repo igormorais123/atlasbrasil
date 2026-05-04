@@ -1,0 +1,113 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SE",
+    "level": "city",
+    "cityId": "2800308",
+    "name": "Aracaju"
+  },
+  "simulation": {
+    "id": "aracaju-business-base-001",
+    "type": "business",
+    "scenario": "base",
+    "seed": "atlas-aracaju-m3-2026-05-04",
+    "generatedAt": "2026-05-04T06:16:23Z"
+  },
+  "inputs": {
+    "facts": [
+      {
+        "id": "fact-aracaju-population-2022",
+        "text": "População residente de 602.757 habitantes em 2022.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-4714-aracaju-pop-2022"]
+      },
+      {
+        "id": "fact-aracaju-gdp-2023",
+        "text": "PIB corrente de R$ 22.291.877.000 em 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-aracaju-pib-2002-2023"]
+      },
+      {
+        "id": "fact-aracaju-capital",
+        "text": "Aracaju é capital e centralidade administrativa de Sergipe.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-localidades-aracaju"]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "assumption-service-demand",
+        "text": "Uma capital com mais de 600 mil habitantes justifica testar hipóteses de serviços de proximidade, mas não autoriza recomendação de investimento sem dados de bairro, renda, fluxo e concorrência.",
+        "kind": "assumption",
+        "confidence": "media",
+        "sources": []
+      }
+    ],
+    "events": []
+  },
+  "outputs": {
+    "summary": "A simulação de negócio base indica que Aracaju é adequada para testar oportunidades urbanas no Atlas Sim, mas apenas como triagem. Farmácia, padaria, clínica e cursos técnicos devem permanecer como hipóteses até haver dados de renda, fluxo, concorrência e lacunas de serviço por área.",
+    "metrics": [
+      {
+        "id": "business_readiness",
+        "label": "Prontidão para hipótese de negócio",
+        "value": 48,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "evidence_coverage",
+        "label": "Cobertura inicial de evidência",
+        "value": 32,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "territorial_health_score",
+        "label": "Saúde territorial inicial",
+        "value": 55,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "baixa"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-aracaju-neighborhood-data",
+        "title": "Coletar dados por bairro ou zona antes de recomendação comercial",
+        "rationale": "Oportunidade urbana depende de renda local, fluxo, concorrência, acesso e lacunas de serviço.",
+        "risk": "Abrir recomendação genérica para a cidade inteira pode induzir decisão ruim.",
+        "confidence": "alta"
+      },
+      {
+        "id": "rec-aracaju-services",
+        "title": "Testar serviços de proximidade como hipóteses",
+        "rationale": "Capitalidade, população e PIB corrente justificam triagem para farmácia, padaria, clínica e cursos técnicos.",
+        "risk": "Sem dados setoriais, a hipótese não vira recomendação de investimento.",
+        "confidence": "media"
+      }
+    ]
+  },
+  "verifiers": [
+    "fontes oficiais identificadas",
+    "simulação marcada como simulação",
+    "sem recomendação financeira direta",
+    "sem dados privados"
+  ],
+  "disclaimer": "Esta é uma simulação sintética agregada de triagem territorial, não conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": [
+    "Não há dados por bairro nesta versão.",
+    "Não há concorrência, renda, fluxo de pessoas ou aluguel comercial.",
+    "As oportunidades citadas são hipóteses para investigação, não decisões prontas."
+  ],
+  "sources": [
+    "ibge-sidra-4714-aracaju-pop-2022",
+    "ibge-sidra-5938-aracaju-pib-2002-2023",
+    "ibge-localidades-aracaju"
+  ]
+}

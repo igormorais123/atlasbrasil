@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "name": "São Paulo",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "researchQuestion": "Como testar a escala do Atlas Sim em um estado grande, diverso e economicamente dominante sem transformar poucos indicadores em conclusão territorial forte?",
+  "scope": {
+    "level": "state",
+    "territory": "São Paulo",
+    "pilotType": "scale_test"
+  },
+  "includedSources": [
+    {
+      "id": "ibge-sidra-4714-pop-2022",
+      "kind": "primary_official",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n3/35/v/93/p/2022"
+    },
+    {
+      "id": "ibge-sidra-5938-pib-2022-2023",
+      "kind": "primary_official",
+      "label": "IBGE/SIDRA Tabela 5938 - Produto Interno Bruto a preços correntes",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n3/35/v/37/p/2022,2023"
+    },
+    {
+      "id": "ibge-localidades-municipios-sp",
+      "kind": "primary_official",
+      "label": "IBGE API de Localidades - Municípios de São Paulo",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios?orderBy=nome"
+    }
+  ],
+  "exclusionRules": [
+    "Não publicar base sintética privada de SP.",
+    "Não publicar pessoa sintética individual.",
+    "Não publicar prompt, memória, log ou caminho local.",
+    "Não concluir melhora/piora ampla sem séries setoriais."
+  ],
+  "decisionRules": [
+    "Tratar SP como stress test de escala, não como diagnóstico final.",
+    "Separar capital, interior, litoral, agro-serviços e indústria em coortes agregadas.",
+    "Usar veredito inconclusivo até incorporar emprego, renda, saúde, educação, segurança e orçamento."
+  ],
+  "limitations": [
+    "Pacote inicial usa apenas população, PIB corrente e número de municípios.",
+    "PIB corrente nominal não mede bem-estar, distribuição de renda ou custo de vida.",
+    "São Paulo exige granularidade regional antes de qualquer conclusão prática."
+  ]
+}

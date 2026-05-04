@@ -1,0 +1,66 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "name": "São Paulo",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "status": "draft_validated",
+  "files": [
+    {
+      "path": "research-protocol.json",
+      "kind": "research_protocol",
+      "hash": "a7fd987f5d77e7cfee272ef0ea2c11ebbaa3c223c622fc1122a835a87eff230f"
+    },
+    {
+      "path": "state-pack.json",
+      "kind": "state_pack",
+      "hash": "9047d2ec5a21db40c94d685bd4dee16d291a4b0050287de37899a1c0a5c5fd3f"
+    },
+    {
+      "path": "synthetic-cohort-pack.json",
+      "kind": "synthetic_cohort_pack",
+      "hash": "4e0c3c3b22a5725fc1704230b3e30983c3c58a8211c9a2def2148b47a21e16f7"
+    },
+    {
+      "path": "evidence-ledger.json",
+      "kind": "evidence_ledger",
+      "hash": "627cf698e8925a71909c227dc4ad02a4c2166aff005598234b6d43e78fb1e322"
+    },
+    {
+      "path": "simulations/territorial-base.json",
+      "kind": "simulation_pack",
+      "hash": "624cccbc872aab6230f3ccb6a060b5d4e7785e0563045e83e01b746962707328"
+    },
+    {
+      "path": "comparisons/regional-clusters.json",
+      "kind": "regional_cluster_pack",
+      "hash": "7794c950143feb208cbd820751212904b97937911e31758163f24846d1f58942"
+    },
+    {
+      "path": "comparisons/city-scale-quartet.json",
+      "kind": "city_comparison",
+      "hash": "b0de843831ef98c4ebd77d938ecb13d1a5fffa64337486a237e2b7a1d4d74a63"
+    },
+    {
+      "path": "opportunity-cards.json",
+      "kind": "opportunity_cards",
+      "hash": "a9c0f8667796fc2009c7262f0eeaeb3f8513bb32f02d179fb8e07e533dadafdd"
+    },
+    {
+      "path": "forecast-ledger.json",
+      "kind": "forecast_ledger",
+      "hash": "c933570adc343e22dadec248d2169653d76ed38d2319052e66c960a8f96e13ba"
+    }
+  ],
+  "publicationGate": {
+    "schemasValid": true,
+    "securityScanPassed": true,
+    "reviewed": true,
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false
+  },
+  "limitations": [
+    "Pacote inicial de escala, com veredito territorial conservador.",
+    "Scores de simulação são heurísticos e não indicadores oficiais.",
+    "Manifest deve ser regenerado sempre que qualquer arquivo do pacote mudar."
+  ]
+}

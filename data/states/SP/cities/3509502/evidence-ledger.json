@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "cityId": "3509502",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "entries": [
+    {
+      "id": "campinas-pop-2022",
+      "claim": "Campinas tinha 1.139.047 habitantes residentes em 2022.",
+      "kind": "factual",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-4714-campinas-pop-2022"],
+      "limits": ["População não mede renda nem distribuição espacial."]
+    },
+    {
+      "id": "campinas-gdp-2023",
+      "claim": "Campinas teve PIB corrente de R$ 91.968.328.000 em 2023.",
+      "kind": "factual",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-campinas-pib-2022-2023"],
+      "limits": ["PIB nominal não mostra setores nem renda domiciliar."]
+    },
+    {
+      "id": "campinas-scale-pilot",
+      "claim": "Campinas é uma boa cidade-piloto paulista fora da capital para testar escala municipal.",
+      "kind": "inference",
+      "confidence": "media",
+      "sources": ["campinas-pop-2022", "campinas-gdp-2023"],
+      "limits": ["A inferência é técnica e metodológica, não recomendação de investimento."]
+    }
+  ]
+}

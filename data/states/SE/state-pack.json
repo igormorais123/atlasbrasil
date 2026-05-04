@@ -1,0 +1,108 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "name": "Sergipe",
+  "generatedAt": "2026-05-04T05:57:54Z",
+  "territorialHealthScore": 52,
+  "verdict": "inconclusivo",
+  "confidence": "media",
+  "indicators": [
+    {
+      "id": "population_2022",
+      "label": "População residente",
+      "value": 2210004,
+      "unit": "pessoas",
+      "year": 2022,
+      "kind": "measured",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-4714-pop-2022"]
+    },
+    {
+      "id": "municipalities_count",
+      "label": "Municípios",
+      "value": 75,
+      "unit": "municípios",
+      "year": 2026,
+      "kind": "measured",
+      "direction": "stable",
+      "sources": ["ibge-localidades-municipios-se"]
+    },
+    {
+      "id": "gdp_current_2023",
+      "label": "PIB corrente",
+      "value": 60816662000,
+      "unit": "R$",
+      "year": 2023,
+      "kind": "measured",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-pib-2002-2023"]
+    },
+    {
+      "id": "gdp_per_capita_proxy_2023",
+      "label": "PIB corrente por habitante",
+      "value": 27518.8,
+      "unit": "R$/habitante",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-5938-pib-2002-2023", "ibge-sidra-4714-pop-2022"]
+    },
+    {
+      "id": "gdp_nominal_growth_2022_2023",
+      "label": "Crescimento nominal do PIB",
+      "value": 6,
+      "unit": "%",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-pib-2002-2023"]
+    }
+  ],
+  "diagnostics": {
+    "strengths": [
+      "Estado pequeno o suficiente para piloto de profundidade com validação territorial manual.",
+      "Estrutura municipal manejável com 75 municípios, favorecendo evolução para city packs.",
+      "PIB corrente oficial mostra série longa disponível desde 2002 no SIDRA."
+    ],
+    "weaknesses": [
+      "O pacote M1 ainda não incorpora indicadores oficiais de saúde, educação, trabalho, renda e segurança.",
+      "PIB corrente não mede poder de compra nem distribuição de renda.",
+      "Diagnóstico estadual pode esconder diferenças internas entre capital, litoral, agreste e sertão."
+    ],
+    "opportunities": [
+      "Criar primeiro Atlas Sim público com rastreabilidade simples.",
+      "Evoluir rapidamente para Aracaju e municípios-polo como pacotes municipais.",
+      "Testar recomendações de negócio e carreira somente após incluir indicadores setoriais."
+    ],
+    "risks": [
+      "Transformar crescimento nominal em conclusão social indevida.",
+      "Publicar simulação sintética como se fosse pesquisa real.",
+      "Generalizar o estado inteiro sem checar centralidades municipais."
+    ],
+    "limitations": [
+      "Veredito inconclusivo por desenho metodológico conservador.",
+      "Pacote inicial usa apenas população, PIB corrente e estrutura municipal.",
+      "Indicadores setoriais serão necessários para afirmar melhora ou piora."
+    ]
+  },
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n3/28/v/93/p/2022",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    },
+    {
+      "id": "ibge-sidra-5938-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - Produto Interno Bruto a preços correntes",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n3/28/v/37/p/all",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    },
+    {
+      "id": "ibge-localidades-municipios-se",
+      "label": "IBGE API de Localidades - Municípios de Sergipe",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/28/municipios?orderBy=nome",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    }
+  ]
+}

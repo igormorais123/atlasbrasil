@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2802908",
+  "name": "Itabaiana",
+  "generatedAt": "2026-05-04T06:45:00Z",
+  "domains": [
+    {
+      "id": "pharmacy",
+      "label": "Farmácia",
+      "readiness": 50,
+      "evidence": 34,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Polo regional com mais de 100 mil habitantes permite hipótese de serviços de saúde e conveniência.",
+      "missingData": ["idade", "renda", "concorrência", "fluxo regional", "acesso a saúde"],
+      "risk": "Fluxo regional precisa ser provado, não presumido."
+    },
+    {
+      "id": "bakery",
+      "label": "Padaria",
+      "readiness": 48,
+      "evidence": 33,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Escala municipal favorece triagem de comércio de proximidade.",
+      "missingData": ["bairros", "fluxo", "concorrência", "renda", "aluguel"],
+      "risk": "Sem microterritório, a hipótese é ampla demais."
+    },
+    {
+      "id": "technical_course",
+      "label": "Curso técnico",
+      "readiness": 54,
+      "evidence": 35,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Polo regional e sinal econômico nominal forte sugerem investigar formação técnica.",
+      "missingData": ["setores empregadores", "vagas", "instituições concorrentes", "perfil jovem"],
+      "risk": "Crescimento nominal pode não refletir demanda por formação."
+    },
+    {
+      "id": "technical_career",
+      "label": "Carreira técnica",
+      "readiness": 52,
+      "evidence": 34,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Cidade média regional pode demandar serviços técnicos, mas faltam setores e ocupações.",
+      "missingData": ["CAGED/RAIS", "setores", "salários", "vagas", "empregabilidade"],
+      "risk": "Sem ocupações, recomendação de carreira vira genérica."
+    }
+  ],
+  "disclaimer": "Triagem sintética agregada. Não é conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": ["Sem dados setoriais.", "Sem fluxo regional comprovado.", "Sem concorrência.", "Sem custos."],
+  "sources": ["city-pack.json", "simulations/business-base.json"]
+}

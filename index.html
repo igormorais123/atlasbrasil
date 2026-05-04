@@ -12,7 +12,6 @@
   connect-src 'self' https://servicodados.ibge.gov.br https://apisidra.ibge.gov.br https://tiles.openfreemap.org https://demotiles.maplibre.org https://server.arcgisonline.com https://img.youtube.com cdn.jsdelivr.net unpkg.com;
   worker-src blob:;
   object-src 'none';
-  frame-ancestors 'none';
   block-all-mixed-content;
   upgrade-insecure-requests;
   base-uri 'self';
@@ -26,6 +25,7 @@
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.5.0/dist/maplibre-gl.css" integrity="sha384-Nq6PQ+9vJPvw7U/VfDELyrWoGQMsy0gi6QShhaSrGzkpF5KkM40csg2leky+YMTd" crossorigin="anonymous" />
 <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.5.0/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-Nq6PQ+9vJPvw7U/VfDELyrWoGQMsy0gi6QShhaSrGzkpF5KkM40csg2leky+YMTd" crossorigin="anonymous" />
 <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="atlas-sim.css" />
 
 </head>
 <body>
@@ -41,6 +41,7 @@
 
     <div class="map-hud hud-bottom">
       <div class="chip">Fonte <strong>IBGE/SIDRA 2022</strong></div>
+        <div class="chip">Atlas Sim <strong>SE/SP</strong></div>
       <div class="chip">Coordenadas <strong id="hud-coords">0.000, 0.000</strong></div>
     </div>
 
@@ -186,6 +187,16 @@
               <strong id="selected-context">Brasil</strong>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Atlas Sim</h2>
+          <span class="tiny" id="atlas-sim-status">piloto público</span>
+        </div>
+        <div class="atlas-sim" id="atlas-sim-panel">
+          <div class="atlas-sim-empty">Selecione Sergipe ou São Paulo para carregar um pacote público validado.</div>
         </div>
       </section>
 

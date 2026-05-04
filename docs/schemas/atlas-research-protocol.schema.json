@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlasbrasil.local/schemas/atlas-research-protocol.schema.json",
+  "title": "AtlasResearchProtocol",
+  "type": "object",
+  "required": [
+    "version",
+    "researchQuestion",
+    "scope",
+    "corpus",
+    "criteria",
+    "claims",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "researchQuestion": { "type": "string", "minLength": 1 },
+    "scope": {
+      "type": "object",
+      "required": ["level", "period"],
+      "additionalProperties": false,
+      "properties": {
+        "level": { "enum": ["country", "state", "region", "city", "neighborhood"] },
+        "uf": { "type": "string", "minLength": 2, "maxLength": 2 },
+        "cityId": { "type": "string" },
+        "domain": {
+          "enum": [
+            "territorial",
+            "economic",
+            "education",
+            "health",
+            "public_policy",
+            "business",
+            "career",
+            "public_opinion"
+          ]
+        },
+        "period": {
+          "type": "object",
+          "required": ["startYear", "endYear"],
+          "additionalProperties": false,
+          "properties": {
+            "startYear": { "type": "integer", "minimum": 1900 },
+            "endYear": { "type": "integer", "minimum": 1900 }
+          }
+        }
+      }
+    },
+    "corpus": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "evidenceLevel"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "url": { "type": "string" },
+          "evidenceLevel": {
+            "enum": [
+              "primary_official",
+              "primary_non_official",
+              "systematic_review",
+              "secondary_analysis",
+              "expert_interpretation",
+              "simulation",
+              "assumption"
+            ]
+          },
+          "accessedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "criteria": {
+      "type": "object",
+      "required": ["inclusion", "exclusion"],
+      "additionalProperties": false,
+      "properties": {
+        "inclusion": { "type": "array", "items": { "type": "string" } },
+        "exclusion": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "kind", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "kind": {
+            "enum": ["factual", "inference", "forecast", "assumption", "opinion", "simulation"]
+          },
+          "evidenceLevel": {
+            "enum": [
+              "primary_official",
+              "primary_non_official",
+              "systematic_review",
+              "secondary_analysis",
+              "expert_interpretation",
+              "simulation",
+              "assumption"
+            ]
+          },
+          "sources": { "type": "array", "items": { "type": "string" } },
+          "confidence": { "enum": ["baixa", "media", "alta"] },
+          "limitations": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "redTeam": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis", "wouldChangeConclusionIf"],
+        "additionalProperties": false,
+        "properties": {
+          "hypothesis": { "type": "string", "minLength": 1 },
+          "wouldChangeConclusionIf": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "action", "risk", "kpi", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "minLength": 1 },
+          "action": { "type": "string", "minLength": 1 },
+          "risk": { "type": "string", "minLength": 1 },
+          "kpi": { "type": "string", "minLength": 1 },
+          "confidence": { "enum": ["baixa", "media", "alta"] }
+        }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "manifestHash": { "type": "string" }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "cityId": "3509502",
+  "name": "Campinas",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "domains": [
+    {
+      "id": "clinic",
+      "label": "Clínica",
+      "readiness": 55,
+      "evidence": 34,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Porte urbano e econômico justificam investigar saúde privada e especialidades, mas faltam CNES, planos, renda e concorrência.",
+      "missingData": ["CNES", "especialidades", "planos", "renda", "bairros", "concorrência"],
+      "risk": "Sem mapa de oferta, a hipótese pode superestimar demanda."
+    },
+    {
+      "id": "technical_course",
+      "label": "Curso técnico",
+      "readiness": 57,
+      "evidence": 35,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Cidade-polo de grande porte sugere investigar formação técnica, especialmente com dados de emprego formal.",
+      "missingData": ["RAIS/CAGED", "setores", "vagas", "salários", "instituições concorrentes"],
+      "risk": "Curso sem aderência setorial pode ter baixa empregabilidade."
+    },
+    {
+      "id": "pharmacy",
+      "label": "Farmácia",
+      "readiness": 53,
+      "evidence": 33,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "Escala urbana permite hipótese de conveniência e saúde, mas a decisão depende de bairro, idade, renda e concorrência.",
+      "missingData": ["bairros", "idade", "renda", "concorrência", "fluxo"],
+      "risk": "Ponto comercial e competição podem dominar a média municipal."
+    },
+    {
+      "id": "technical_career",
+      "label": "Carreira técnica",
+      "readiness": 58,
+      "evidence": 35,
+      "stance": "investigar",
+      "confidence": "media",
+      "why": "O porte municipal justifica hipótese de carreira técnica, mas a conclusão depende de vagas, salários e setores.",
+      "missingData": ["ocupações", "salários", "vagas", "setores", "empregabilidade"],
+      "risk": "Sem ocupações, a recomendação vira genérica."
+    }
+  ],
+  "disclaimer": "Triagem sintética agregada. Não é conselho financeiro, pesquisa de mercado conclusiva ou recomendação educacional conclusiva.",
+  "limitations": ["Sem dados por bairro.", "Sem RAIS/CAGED.", "Sem CNES.", "Sem concorrência."],
+  "sources": ["city-pack.json", "simulations/business-base.json"]
+}

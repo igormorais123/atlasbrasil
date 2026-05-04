@@ -1,0 +1,43 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2802908",
+  "name": "Itabaiana",
+  "generatedAt": "2026-05-04T06:26:42Z",
+  "status": "draft_validated",
+  "files": [
+    {
+      "path": "city-pack.json",
+      "kind": "city_pack",
+      "hash": "a2d0bcd81b8794cb51173282c0955bc498d4fee273c9806ca0113e0b994ef4d6"
+    },
+    {
+      "path": "evidence-ledger.json",
+      "kind": "evidence_ledger",
+      "hash": "13884d1c64e14b9aaf5f559000f03206e7a4c526a2a0db698e65e9c8d73725b0"
+    },
+    {
+      "path": "simulations/business-base.json",
+      "kind": "simulation_pack",
+      "hash": "ac499dc5db5452ede2662e7eb0d066d16c7638b39eabe94db054aacaa7f8ad0e"
+    },
+    {
+      "path": "simulations/domain-screening.json",
+      "kind": "domain_screening",
+      "hash": "13deab49a9c848191f23f6ed4479f289249102f14e278a3fb7443931b3c43f93"
+    }
+  ],
+  "publicationGate": {
+    "schemasValid": true,
+    "securityScanPassed": true,
+    "reviewed": true,
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false,
+    "financialAdvicePublished": false
+  },
+  "limitations": [
+    "Pacote municipal inicial.",
+    "Crescimento nominal não é crescimento real.",
+    "Hipóteses de negócio não são recomendação financeira."
+  ]
+}

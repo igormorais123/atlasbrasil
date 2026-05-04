@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SP",
+    "cityId": "3509502",
+    "level": "city",
+    "name": "Campinas"
+  },
+  "simulation": {
+    "id": "campinas-business-base-001",
+    "type": "business",
+    "scenario": "base",
+    "seed": "atlas-sp-campinas-m9-2026-05-04",
+    "generatedAt": "2026-05-04T08:00:00Z"
+  },
+  "inputs": {
+    "facts": [
+      {
+        "id": "fact-campinas-pop",
+        "text": "Campinas tem mais de 1,1 milhão de habitantes no Censo 2022.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-4714-campinas-pop-2022"]
+      },
+      {
+        "id": "fact-campinas-gdp",
+        "text": "Campinas teve PIB corrente acima de R$ 91 bilhões em 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-campinas-pib-2022-2023"]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "assumption-polo",
+        "text": "Cidade-polo de grande porte pode sustentar hipóteses de serviços, mas exige dados por bairro e setor.",
+        "kind": "assumption",
+        "confidence": "media",
+        "sources": []
+      }
+    ],
+    "events": []
+  },
+  "outputs": {
+    "summary": "Campinas é apropriada para investigar oportunidades urbanas e profissionais em São Paulo, mas o pacote atual ainda não permite recomendar ponto, curso ou setor específico.",
+    "metrics": [
+      {
+        "id": "business_readiness",
+        "label": "Prontidão para hipótese de negócio",
+        "value": 56,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-campinas-sector-data",
+        "title": "Adicionar dados setoriais antes de recomendar",
+        "rationale": "Porte econômico cria hipótese, mas não substitui renda, concorrência, bairros, fluxo e setores.",
+        "risk": "Recomendação prática sem microterritório pode induzir decisão ruim.",
+        "confidence": "alta"
+      }
+    ]
+  },
+  "verifiers": ["sem persona bruta", "disclaimer presente", "fontes oficiais identificadas"],
+  "disclaimer": "Triagem sintética agregada. Não é conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": ["Sem dados por bairro.", "Sem concorrência.", "Sem renda local detalhada.", "Sem custos de ponto."],
+  "sources": ["ibge-sidra-4714-campinas-pop-2022", "ibge-sidra-5938-campinas-pib-2022-2023"]
+}

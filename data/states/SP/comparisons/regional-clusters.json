@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "title": "Clusters públicos iniciais para teste de escala em São Paulo",
+  "clusters": [
+    {
+      "id": "sp-metropole",
+      "label": "Metrópole e entorno",
+      "role": "stress test de densidade urbana, mobilidade e serviços",
+      "pilotCities": ["3550308", "3518800", "3548708"],
+      "needs": ["mobilidade", "renda", "habitação", "saúde", "segurança"]
+    },
+    {
+      "id": "sp-campinas-eixo",
+      "label": "Eixo Campinas",
+      "role": "cidade-polo de escala fora da capital",
+      "pilotCities": ["3509502"],
+      "needs": ["emprego formal", "educação técnica", "tecnologia", "saúde", "concorrência"]
+    },
+    {
+      "id": "sp-interior-agro-servicos",
+      "label": "Interior agro-serviços",
+      "role": "testar polos regionais e serviços de proximidade",
+      "pilotCities": ["3543402", "3506003"],
+      "needs": ["setores", "salários", "vagas", "fluxo regional", "educação"]
+    },
+    {
+      "id": "sp-litoral-logistica",
+      "label": "Litoral e logística",
+      "role": "avaliar sazonalidade, porto, turismo e moradia",
+      "pilotCities": ["3548500"],
+      "needs": ["turismo", "porto", "saneamento", "habitação", "mobilidade"]
+    }
+  ],
+  "limitations": [
+    "Clusters iniciais são desenho de trabalho, não regionalização oficial.",
+    "Não há ranking entre clusters.",
+    "Cada cluster precisa de fontes setoriais antes de recomendações."
+  ],
+  "sources": [
+    "data/states/SP/state-pack.json",
+    "data/states/SP/synthetic-cohort-pack.json"
+  ]
+}

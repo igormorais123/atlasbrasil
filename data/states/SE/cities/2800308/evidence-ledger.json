@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2800308",
+  "name": "Aracaju",
+  "generatedAt": "2026-05-04T06:16:23Z",
+  "claimTypes": ["factual", "inference", "simulation", "recommendation"],
+  "entries": [
+    {
+      "id": "ev-aracaju-001",
+      "claimId": "claim-aracaju-pop-2022",
+      "kind": "factual",
+      "claim": "Aracaju tinha 602.757 habitantes no Censo Demográfico 2022.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-4714-aracaju-pop-2022"],
+      "limits": ["População não mede sozinha qualidade de vida, renda ou oportunidade comercial."]
+    },
+    {
+      "id": "ev-aracaju-002",
+      "claimId": "claim-aracaju-pib-2023",
+      "kind": "factual",
+      "claim": "O PIB corrente de Aracaju em 2023 foi de R$ 22.291.877.000.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-aracaju-pib-2002-2023"],
+      "limits": ["Valor corrente, sem deflação e sem distribuição por bairro."]
+    },
+    {
+      "id": "ev-aracaju-003",
+      "claimId": "claim-aracaju-capital",
+      "kind": "factual",
+      "claim": "Aracaju é capital e centralidade administrativa de Sergipe.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-localidades-aracaju"],
+      "limits": ["Centralidade administrativa não equivale a oportunidade homogênea em todo o município."]
+    },
+    {
+      "id": "ev-aracaju-004",
+      "claimId": "claim-aracaju-verdict",
+      "kind": "inference",
+      "claim": "Com os dados atuais, Aracaju permanece inconclusiva para diagnóstico amplo, mas pronta para piloto municipal do Atlas Sim.",
+      "evidenceLevel": "expert_interpretation",
+      "confidence": "media",
+      "sources": ["ibge-sidra-4714-aracaju-pop-2022", "ibge-sidra-5938-aracaju-pib-2002-2023", "ibge-localidades-aracaju"],
+      "limits": ["Exige dados setoriais e intramunicipais antes de recomendação prática forte."]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-aracaju-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente de Aracaju, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/2800308/v/93/p/2022",
+      "accessedAt": "2026-05-04T06:16:23Z"
+    },
+    {
+      "id": "ibge-sidra-5938-aracaju-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - PIB corrente de Aracaju",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/2800308/v/37/p/all",
+      "accessedAt": "2026-05-04T06:16:23Z"
+    },
+    {
+      "id": "ibge-localidades-aracaju",
+      "label": "IBGE API de Localidades - Município de Aracaju",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/2800308",
+      "accessedAt": "2026-05-04T06:16:23Z"
+    }
+  ]
+}

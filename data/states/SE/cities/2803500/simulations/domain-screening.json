@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2803500",
+  "name": "Lagarto",
+  "generatedAt": "2026-05-04T06:45:00Z",
+  "domains": [
+    {
+      "id": "clinic",
+      "label": "Clínica",
+      "readiness": 47,
+      "evidence": 32,
+      "stance": "faltam_dados",
+      "confidence": "baixa",
+      "why": "População permite hipótese, mas faltam lacunas de especialidade, renda e rede de atendimento.",
+      "missingData": ["idade", "SUS", "especialidades", "renda", "concorrência"],
+      "risk": "A demanda pode estar concentrada em especialidades específicas não mapeadas."
+    },
+    {
+      "id": "technical_course",
+      "label": "Curso técnico",
+      "readiness": 46,
+      "evidence": 32,
+      "stance": "faltam_dados",
+      "confidence": "baixa",
+      "why": "Cidade-polo com população relevante, mas sinal econômico exige dados de emprego e setores.",
+      "missingData": ["emprego formal", "setores", "perfil educacional", "concorrentes"],
+      "risk": "Curso sem aderência setorial pode ter baixa conversão em emprego."
+    },
+    {
+      "id": "pharmacy",
+      "label": "Farmácia",
+      "readiness": 44,
+      "evidence": 31,
+      "stance": "faltam_dados",
+      "confidence": "baixa",
+      "why": "Hipótese depende fortemente de bairros, idade, fluxo e concorrência.",
+      "missingData": ["bairros", "idade", "renda", "concorrência", "fluxo"],
+      "risk": "Sem microdados, a cidade inteira é unidade ampla demais."
+    }
+  ],
+  "disclaimer": "Triagem sintética agregada. Não é conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": ["Sem dados por bairro.", "Sem setores empregadores.", "Sem concorrência."],
+  "sources": ["city-pack.json", "simulations/business-base.json"]
+}

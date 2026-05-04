@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2803500",
+  "name": "Lagarto",
+  "generatedAt": "2026-05-04T06:34:21Z",
+  "claimTypes": ["factual", "inference", "simulation", "recommendation"],
+  "entries": [
+    {
+      "id": "ev-lagarto-001",
+      "claimId": "claim-lagarto-pop-2022",
+      "kind": "factual",
+      "claim": "Lagarto tinha 101.579 habitantes no Censo Demográfico 2022.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-4714-lagarto-pop-2022"],
+      "limits": ["População não mede sozinha dinamismo econômico ou qualidade de vida."]
+    },
+    {
+      "id": "ev-lagarto-002",
+      "claimId": "claim-lagarto-pib-2023",
+      "kind": "factual",
+      "claim": "O PIB corrente de Lagarto em 2023 foi de R$ 2.177.825.000.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-lagarto-pib-2002-2023"],
+      "limits": ["Valor corrente, sem deflação e sem distribuição setorial ou territorial."]
+    },
+    {
+      "id": "ev-lagarto-003",
+      "claimId": "claim-lagarto-growth",
+      "kind": "factual",
+      "claim": "O PIB corrente de Lagarto cresceu nominalmente 2,38% entre 2022 e 2023.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-lagarto-pib-2002-2023"],
+      "limits": ["Crescimento nominal baixo não prova piora ampla; exige análise setorial e deflação."]
+    },
+    {
+      "id": "ev-lagarto-004",
+      "claimId": "claim-lagarto-comparison",
+      "kind": "inference",
+      "claim": "Lagarto é útil para comparar polos de população semelhante com sinais econômicos diferentes.",
+      "evidenceLevel": "expert_interpretation",
+      "confidence": "media",
+      "sources": ["ibge-sidra-4714-lagarto-pop-2022", "ibge-sidra-5938-lagarto-pib-2002-2023", "ibge-localidades-lagarto"],
+      "limits": ["A inferência exige dados de emprego, comércio, renda e serviços para ganhar confiança."]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-lagarto-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente de Lagarto, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/2803500/v/93/p/2022",
+      "accessedAt": "2026-05-04T06:34:21Z"
+    },
+    {
+      "id": "ibge-sidra-5938-lagarto-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - PIB corrente de Lagarto",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/2803500/v/37/p/all",
+      "accessedAt": "2026-05-04T06:34:21Z"
+    },
+    {
+      "id": "ibge-localidades-lagarto",
+      "label": "IBGE API de Localidades - Município de Lagarto",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/2803500",
+      "accessedAt": "2026-05-04T06:34:21Z"
+    }
+  ]
+}

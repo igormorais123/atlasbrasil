@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2802106",
+  "name": "Estância",
+  "generatedAt": "2026-05-04T06:45:00Z",
+  "domains": [
+    {
+      "id": "technical_course",
+      "label": "Curso técnico",
+      "readiness": 39,
+      "evidence": 30,
+      "stance": "risco_alto",
+      "confidence": "baixa",
+      "why": "Queda nominal forte do PIB pede investigação setorial antes de sugerir formação.",
+      "missingData": ["setores afetados", "emprego", "renda", "juventude", "instituições"],
+      "risk": "Curso pode mirar setor em contração se a queda for concentrada."
+    },
+    {
+      "id": "clinic",
+      "label": "Clínica",
+      "readiness": 40,
+      "evidence": 30,
+      "stance": "faltam_dados",
+      "confidence": "baixa",
+      "why": "Serviços regionais podem existir, mas faltam lacunas de saúde e renda.",
+      "missingData": ["idade", "SUS", "especialidades", "renda", "concorrência"],
+      "risk": "Sem lacuna de oferta, hipótese clínica é frágil."
+    },
+    {
+      "id": "bakery",
+      "label": "Padaria",
+      "readiness": 37,
+      "evidence": 29,
+      "stance": "risco_alto",
+      "confidence": "baixa",
+      "why": "Queda nominal e escala menor exigem cautela antes de hipótese comercial.",
+      "missingData": ["renda", "bairros", "fluxo", "concorrência", "aluguel"],
+      "risk": "Ponto comercial errado pode ser mais determinante que média municipal."
+    }
+  ],
+  "disclaimer": "Triagem sintética agregada. Não é conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": ["Sem decomposição setorial.", "Sem renda local.", "Sem turismo/indústria.", "Sem concorrência."],
+  "sources": ["city-pack.json", "simulations/business-base.json"]
+}

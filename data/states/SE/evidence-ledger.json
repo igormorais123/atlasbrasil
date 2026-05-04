@@ -1,0 +1,69 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "name": "Sergipe",
+  "generatedAt": "2026-05-04T05:57:54Z",
+  "claimTypes": ["factual", "inference", "simulation", "recommendation"],
+  "entries": [
+    {
+      "id": "ev-se-001",
+      "claimId": "claim-se-pop-2022",
+      "kind": "factual",
+      "claim": "Sergipe tinha 2.210.004 habitantes no Censo Demográfico 2022.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-4714-pop-2022"],
+      "limits": ["Não mede qualidade de vida nem tendência social isoladamente."]
+    },
+    {
+      "id": "ev-se-002",
+      "claimId": "claim-se-pib-2023",
+      "kind": "factual",
+      "claim": "O PIB estadual corrente de Sergipe em 2023 foi de R$ 60.816.662.000.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-pib-2002-2023"],
+      "limits": ["Valor corrente, sem deflação e sem distribuição."]
+    },
+    {
+      "id": "ev-se-003",
+      "claimId": "claim-se-municipios",
+      "kind": "factual",
+      "claim": "Sergipe possui 75 municípios na API pública de localidades do IBGE.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-localidades-municipios-se"],
+      "limits": ["Estrutura administrativa não equivale a diagnóstico socioeconômico."]
+    },
+    {
+      "id": "ev-se-004",
+      "claimId": "claim-se-verdict-inicial",
+      "kind": "inference",
+      "claim": "O veredito territorial agregado permanece inconclusivo nesta versão inicial.",
+      "evidenceLevel": "expert_interpretation",
+      "confidence": "media",
+      "sources": ["ibge-sidra-4714-pop-2022", "ibge-sidra-5938-pib-2002-2023", "ibge-localidades-municipios-se"],
+      "limits": ["Decisão conservadora por falta de indicadores setoriais nesta primeira entrega."]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n3/28/v/93/p/2022",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    },
+    {
+      "id": "ibge-sidra-5938-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - Produto Interno Bruto a preços correntes",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n3/28/v/37/p/all",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    },
+    {
+      "id": "ibge-localidades-municipios-se",
+      "label": "IBGE API de Localidades - Municípios de Sergipe",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/28/municipios?orderBy=nome",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    }
+  ]
+}

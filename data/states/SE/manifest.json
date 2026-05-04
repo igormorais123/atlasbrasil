@@ -1,0 +1,46 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "name": "Sergipe",
+  "generatedAt": "2026-05-04T05:57:54Z",
+  "status": "draft_validated",
+  "files": [
+    {
+      "path": "research-protocol.json",
+      "kind": "research_protocol",
+      "hash": "2cf7f7a9e9b68f3246fae771c8c18ef07f6d023ed42f34127161e402329d4da8"
+    },
+    {
+      "path": "state-pack.json",
+      "kind": "state_pack",
+      "hash": "d0bdee020c8d193c9a3becdc3bda7355359f7c2b2b5e44e26ca3d6b3bc1cc41b"
+    },
+    {
+      "path": "synthetic-cohort-pack.json",
+      "kind": "synthetic_cohort_pack",
+      "hash": "2e8580c068b4bf88457a4c7e641e97024249f16fd0d1f549ba0d0c9b5c4a4650"
+    },
+    {
+      "path": "evidence-ledger.json",
+      "kind": "evidence_ledger",
+      "hash": "86d029bb421e352db0788da1473464a09767a20a9d703cf6d67ed28c2c754765"
+    },
+    {
+      "path": "simulations/territorial-base.json",
+      "kind": "simulation_pack",
+      "hash": "4b3c40cd505029472a2cb6194e88ab97edb6bfd9d4d8228cf5b7243911d8860e"
+    }
+  ],
+  "publicationGate": {
+    "schemasValid": true,
+    "securityScanPassed": true,
+    "reviewed": true,
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false
+  },
+  "limitations": [
+    "Pacote inicial, com veredito territorial conservador.",
+    "Scores de simulação são heurísticos e não indicadores oficiais.",
+    "Manifest deve ser regenerado sempre que qualquer arquivo do pacote mudar."
+  ]
+}

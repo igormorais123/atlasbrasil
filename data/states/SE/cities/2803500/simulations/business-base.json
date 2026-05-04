@@ -1,0 +1,113 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SE",
+    "level": "city",
+    "cityId": "2803500",
+    "name": "Lagarto"
+  },
+  "simulation": {
+    "id": "lagarto-business-base-001",
+    "type": "business",
+    "scenario": "base",
+    "seed": "atlas-lagarto-m3-2026-05-04",
+    "generatedAt": "2026-05-04T06:34:21Z"
+  },
+  "inputs": {
+    "facts": [
+      {
+        "id": "fact-lagarto-population-2022",
+        "text": "População residente de 101.579 habitantes em 2022.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-4714-lagarto-pop-2022"]
+      },
+      {
+        "id": "fact-lagarto-gdp-2023",
+        "text": "PIB corrente de R$ 2.177.825.000 em 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-lagarto-pib-2002-2023"]
+      },
+      {
+        "id": "fact-lagarto-growth",
+        "text": "Crescimento nominal do PIB de 2,38% entre 2022 e 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-lagarto-pib-2002-2023"]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "assumption-service-pole",
+        "text": "Um município-polo com população próxima a Itabaiana, mas sinal econômico nominal menor, ajuda a testar oportunidades que não dependem apenas de PIB.",
+        "kind": "assumption",
+        "confidence": "media",
+        "sources": []
+      }
+    ],
+    "events": []
+  },
+  "outputs": {
+    "summary": "A simulação de negócio base indica Lagarto como terceiro polo útil para comparação. O sinal econômico nominal é menor que Itabaiana, mas a escala populacional parecida permite investigar serviços regionais, saúde, educação e formação profissional com critérios mais finos.",
+    "metrics": [
+      {
+        "id": "business_readiness",
+        "label": "Prontidão para hipótese de negócio",
+        "value": 45,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "regional_pole_signal",
+        "label": "Sinal de polo regional",
+        "value": 49,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "evidence_coverage",
+        "label": "Cobertura inicial de evidência",
+        "value": 33,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-lagarto-sector-data",
+        "title": "Adicionar dados setoriais antes de comparar com Itabaiana",
+        "rationale": "A diferença nominal do PIB pode esconder setores específicos, emprego ou serviços públicos relevantes.",
+        "risk": "Lagarto pode ser subestimada por uma métrica agregada.",
+        "confidence": "alta"
+      },
+      {
+        "id": "rec-lagarto-public-services",
+        "title": "Testar hipóteses de serviços regionais",
+        "rationale": "A escala populacional permite investigar saúde, educação, formação profissional e serviços de proximidade.",
+        "risk": "Sem renda, fluxo e concorrência, a hipótese não vira recomendação comercial.",
+        "confidence": "media"
+      }
+    ]
+  },
+  "verifiers": [
+    "fontes oficiais identificadas",
+    "simulação marcada como simulação",
+    "sem recomendação financeira direta",
+    "sem dados privados"
+  ],
+  "disclaimer": "Esta é uma simulação sintética agregada de triagem territorial, não conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": [
+    "Não há dados de comércio, fluxo, concorrência ou custos nesta versão.",
+    "Crescimento do PIB é nominal, não real.",
+    "As oportunidades citadas são hipóteses para investigação."
+  ],
+  "sources": [
+    "ibge-sidra-4714-lagarto-pop-2022",
+    "ibge-sidra-5938-lagarto-pib-2002-2023",
+    "ibge-localidades-lagarto"
+  ]
+}

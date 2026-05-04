@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlasbrasil.local/schemas/atlas-opportunity-cards.schema.json",
+  "title": "AtlasOpportunityCards",
+  "type": "object",
+  "required": ["version", "uf", "generatedAt", "cards", "disclaimer", "limitations", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string" },
+    "uf": { "type": "string", "minLength": 2, "maxLength": 2 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "domain", "score", "stance", "why", "nextValidation", "risk", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "domain": { "type": "string" },
+          "score": { "type": "number", "minimum": 0, "maximum": 100 },
+          "stance": { "enum": ["investigar", "faltam_dados", "risco_alto", "adiar"] },
+          "why": { "type": "string" },
+          "nextValidation": { "type": "string" },
+          "risk": { "type": "string" },
+          "confidence": { "enum": ["baixa", "media", "alta"] }
+        }
+      }
+    },
+    "disclaimer": { "type": "string" },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "sources": { "type": "array", "items": { "type": "string" } }
+  }
+}

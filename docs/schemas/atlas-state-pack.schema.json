@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlasbrasil.local/schemas/atlas-state-pack.schema.json",
+  "title": "AtlasStatePack",
+  "type": "object",
+  "required": ["version", "uf", "name", "generatedAt", "indicators", "diagnostics", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "uf": { "type": "string", "minLength": 2, "maxLength": 2 },
+    "name": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "territorialHealthScore": { "type": "number", "minimum": 0, "maximum": 100 },
+    "verdict": {
+      "enum": [
+        "melhorou_forte",
+        "melhorou",
+        "melhorou_com_alertas",
+        "estavel",
+        "piorou",
+        "piorou_forte",
+        "inconclusivo"
+      ]
+    },
+    "confidence": { "enum": ["baixa", "media", "alta"] },
+    "indicators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "value", "unit", "year", "kind", "sources"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "value": { "type": "number" },
+          "unit": { "type": "string" },
+          "year": { "type": "integer" },
+          "kind": { "enum": ["measured", "proxy", "estimated"] },
+          "direction": { "enum": ["up", "down", "stable", "unknown"] },
+          "sources": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "object",
+      "required": ["strengths", "weaknesses", "opportunities", "risks", "limitations"],
+      "additionalProperties": false,
+      "properties": {
+        "strengths": { "type": "array", "items": { "type": "string" } },
+        "weaknesses": { "type": "array", "items": { "type": "string" } },
+        "opportunities": { "type": "array", "items": { "type": "string" } },
+        "risks": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "url": { "type": "string" },
+          "accessedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "manifestHash": { "type": "string" }
+  }
+}

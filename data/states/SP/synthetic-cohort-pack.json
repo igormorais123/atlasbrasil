@@ -1,0 +1,79 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SP",
+    "level": "state",
+    "name": "São Paulo"
+  },
+  "sourceSummary": {
+    "privateSource": "gerador privado sanitizado",
+    "rawPersonaCount": 0,
+    "publishedPersonaCount": 0,
+    "aggregationMethod": "Arquétipos regionais agregados, sem indivíduos, sem falas brutas e sem atributos identificáveis."
+  },
+  "privacy": {
+    "rawPersonasPublished": false,
+    "redactionLevel": "aggregate_only",
+    "policy": "O pacote público de SP publica somente coortes agregadas para stress test. Bases sintéticas privadas permanecem fora do repositório."
+  },
+  "archetypes": [
+    {
+      "id": "sp-metropole-servicos",
+      "label": "Metrópole de serviços",
+      "weight": 0.34,
+      "attributes": {
+        "territorio": "capital e região metropolitana",
+        "sensibilidade": "mobilidade, custo de vida, renda, serviços e desigualdade",
+        "uso": "stress test metropolitano"
+      },
+      "decisionDrivers": ["tempo de deslocamento", "renda disponível", "acesso a saúde", "custo de moradia"],
+      "confidence": "baixa",
+      "limitations": ["Arquétipo inicial, não calibrado com microdados públicos."]
+    },
+    {
+      "id": "sp-interior-industrial",
+      "label": "Interior industrial e logístico",
+      "weight": 0.28,
+      "attributes": {
+        "territorio": "eixos industriais e logísticos",
+        "sensibilidade": "emprego formal, qualificação, transporte e cadeia produtiva",
+        "uso": "simulação de carreira e negócios B2B"
+      },
+      "decisionDrivers": ["vagas formais", "salários", "qualificação técnica", "infraestrutura"],
+      "confidence": "baixa",
+      "limitations": ["Exige RAIS/CAGED e setores antes de recomendação."]
+    },
+    {
+      "id": "sp-agro-servicos",
+      "label": "Agro-serviços e polos regionais",
+      "weight": 0.22,
+      "attributes": {
+        "territorio": "interior agroindustrial e centros regionais",
+        "sensibilidade": "ciclos econômicos, serviços regionais e renda local",
+        "uso": "comparação cidade-polo"
+      },
+      "decisionDrivers": ["safra", "serviços regionais", "comércio", "educação técnica"],
+      "confidence": "baixa",
+      "limitations": ["Precisa de decomposição setorial e sazonal."]
+    },
+    {
+      "id": "sp-litoral-transicao",
+      "label": "Litoral e transição urbana",
+      "weight": 0.16,
+      "attributes": {
+        "territorio": "litoral, turismo, porto e moradia sazonal",
+        "sensibilidade": "turismo, logística, saneamento, mobilidade e sazonalidade",
+        "uso": "red team de médias estaduais"
+      },
+      "decisionDrivers": ["temporada", "porto", "serviços", "habitação"],
+      "confidence": "baixa",
+      "limitations": ["Não inferir turismo ou porto sem dados setoriais específicos."]
+    }
+  ],
+  "limitations": [
+    "Este pacote não publica persona individual.",
+    "Pesos são heurísticos e servem para demonstrar contrato público.",
+    "Nenhuma saída deve ser tratada como pesquisa de opinião ou verdade populacional.",
+    "Calibração futura exige dados oficiais adicionais."
+  ]
+}

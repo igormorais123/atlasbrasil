@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "2026-05-04T10:00:00Z",
+  "states": {
+    "SE": {
+      "status": "draft_validated",
+      "label": "Atlas Sim público",
+      "basePath": "data/states/SE",
+      "report": "reports/sergipe/piloto-atlas-sim.md",
+      "optionalPacks": {
+        "comparisonPack": "comparisons/aracaju-itabaiana.json",
+        "domainComparisonPack": "comparisons/domain-screening-4cities.json"
+      }
+    },
+    "SP": {
+      "status": "draft_validated",
+      "label": "Atlas Sim escala",
+      "basePath": "data/states/SP",
+      "report": "reports/sao-paulo/piloto-escala-sp.md",
+      "optionalPacks": {
+        "regionalClusters": "comparisons/regional-clusters.json",
+        "scaleComparisonPack": "comparisons/city-scale-quartet.json",
+        "opportunityCards": "opportunity-cards.json",
+        "forecastLedger": "forecast-ledger.json"
+      }
+    }
+  },
+  "cities": {
+    "2800308": {
+      "uf": "SE",
+      "name": "Aracaju",
+      "basePath": "data/states/SE/cities/2800308",
+      "report": "reports/sergipe/aracaju-atlas-sim.md",
+      "status": "draft_validated"
+    },
+    "2802106": {
+      "uf": "SE",
+      "name": "Estância",
+      "basePath": "data/states/SE/cities/2802106",
+      "report": "reports/sergipe/estancia-atlas-sim.md",
+      "status": "draft_validated"
+    },
+    "2802908": {
+      "uf": "SE",
+      "name": "Itabaiana",
+      "basePath": "data/states/SE/cities/2802908",
+      "report": "reports/sergipe/itabaiana-atlas-sim.md",
+      "status": "draft_validated"
+    },
+    "2803500": {
+      "uf": "SE",
+      "name": "Lagarto",
+      "basePath": "data/states/SE/cities/2803500",
+      "report": "reports/sergipe/lagarto-atlas-sim.md",
+      "status": "draft_validated"
+    },
+    "3509502": {
+      "uf": "SP",
+      "name": "Campinas",
+      "basePath": "data/states/SP/cities/3509502",
+      "report": "reports/sao-paulo/campinas-atlas-sim.md",
+      "status": "draft_validated"
+    }
+  },
+  "publicationGate": {
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false,
+    "frontendSecretsRequired": false
+  }
+}

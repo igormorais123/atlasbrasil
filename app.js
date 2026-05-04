@@ -70,6 +70,52 @@
     { id: "17", sigla: "TO", nome: "Tocantins", regiao: "Norte", pop: 1511459, lng: -48.3, lat: -10.2 }
   ];
 
+  const ATLAS_SIM_PACKS = {
+    SP: {
+      status: "draft_validated",
+      label: "Atlas Sim escala",
+      report: "reports/sao-paulo/piloto-escala-sp.md"
+    },
+    SE: {
+      status: "draft_validated",
+      label: "Atlas Sim público",
+      report: "reports/sergipe/piloto-atlas-sim.md"
+    }
+  };
+
+  const ATLAS_SIM_CITY_PACKS = {
+    "3509502": {
+      uf: "SP",
+      name: "Campinas",
+      status: "draft_validated",
+      report: "reports/sao-paulo/campinas-atlas-sim.md"
+    },
+    "2802106": {
+      uf: "SE",
+      name: "Estância",
+      status: "draft_validated",
+      report: "reports/sergipe/estancia-atlas-sim.md"
+    },
+    "2800308": {
+      uf: "SE",
+      name: "Aracaju",
+      status: "draft_validated",
+      report: "reports/sergipe/aracaju-atlas-sim.md"
+    },
+    "2802908": {
+      uf: "SE",
+      name: "Itabaiana",
+      status: "draft_validated",
+      report: "reports/sergipe/itabaiana-atlas-sim.md"
+    },
+    "2803500": {
+      uf: "SE",
+      name: "Lagarto",
+      status: "draft_validated",
+      report: "reports/sergipe/lagarto-atlas-sim.md"
+    }
+  };
+
   const ENEM_HISTORY_SCORES = {
     "2025": {
       MG: 573.1, SP: 571.3, DF: 568.1, SC: 567.8, RJ: 565.2,
@@ -171,7 +217,7 @@
       "metric-br-pop", "metric-city-count", "metric-state", "metric-state-pop", "metric-city", "metric-city-pop",
       "analysis-caption", "data-state-label", "search", "search-results", "selected-code", "selected-type", "selected-name",
       "selected-pop", "selected-share", "selected-area", "selected-density", "selected-rank", "selected-context", "hover-cards-toggle", "population-chart", "chart-title",
-      "chart-caption", "ranking", "ranking-title", "ranking-caption", "general-caption", "general-grid", "general-note"
+      "chart-caption", "ranking", "ranking-title", "ranking-caption", "atlas-sim-status", "atlas-sim-panel", "general-caption", "general-grid", "general-note"
     ].forEach((id) => {
       elements[id] = document.getElementById(id);
     });
@@ -359,6 +405,7 @@
       cityById.set(String(row.id), {
         id: String(row.id),
         nome: row.nome,
+        name: row.nome,
         stateId,
         uf: state ? state.sigla : stateId,
         stateName: state ? state.nome : ""
@@ -605,6 +652,9 @@
       councilorsMax: politics.councilorsMax,
       enemScore: (ENEM_HISTORY_SCORES[activeEnemYear] || {})[state.sigla] || 0,
       travelScore: Object.keys(DOCUMENTED_CITIES).some(id => id.startsWith(state.id)) ? 1 : 0,
+      atlasSim: Boolean(ATLAS_SIM_PACKS[state.sigla]),
+      atlasSimStatus: ATLAS_SIM_PACKS[state.sigla] ? ATLAS_SIM_PACKS[state.sigla].status : "",
+      atlasSimLabel: ATLAS_SIM_PACKS[state.sigla] ? ATLAS_SIM_PACKS[state.sigla].label : "",
       lng: state.lng,
       lat: state.lat
     };
@@ -739,8 +789,21 @@
       type: "line",
       source: "states-fill-source",
       paint: {
-        "line-color": "rgba(237, 243, 238, 0.55)",
-        "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.65, 7, 1.6]
+        "line-color": [
+          "case",
+          ["boolean", ["get", "atlasSim"], false], "#a9d65c",
+          "rgba(237, 243, 238, 0.55)"
+        ],
+        "line-width": [
+          "case",
+          ["boolean", ["get", "atlasSim"], false], ["interpolate", ["linear"], ["zoom"], 3, 1.7, 7, 3.2],
+          ["interpolate", ["linear"], ["zoom"], 3, 0.65, 7, 1.6]
+        ],
+        "line-opacity": [
+          "case",
+          ["boolean", ["get", "atlasSim"], false], 0.95,
+          0.75
+        ]
       }
     }, baseSymbolLayerId);
 
@@ -901,7 +964,17 @@
     setLayerPaint("states-bubbles", {
       "circle-color": analysisBubbleColor(),
       "circle-radius": territoryBubbleRadiusExpression("state"),
-      "circle-opacity": 0.74
+      "circle-opacity": 0.74,
+      "circle-stroke-color": [
+        "case",
+        ["boolean", ["get", "atlasSim"], false], "#a9d65c",
+        "#edf3ee"
+      ],
+      "circle-stroke-width": [
+        "case",
+        ["boolean", ["get", "atlasSim"], false], 2.8,
+        1.2
+      ]
     });
     setLayerPaint("municipality-fill", {
       "fill-color": territoryHeatColorExpression("city"),
@@ -1940,14 +2013,14 @@
       }));
 
     const cityMatches = Array.from(cityById.values())
-      .filter((city) => normalizeText(`${city.nome} ${city.uf} ${city.stateName}`).includes(query))
+      .filter((city) => normalizeText(`${city.nome || city.name} ${city.uf} ${city.stateName}`).includes(query))
       .sort((a, b) => (b.pop || 0) - (a.pop || 0))
       .slice(0, 7)
       .map((city) => ({
         type: "city",
         id: city.id,
         stateId: city.stateId,
-        title: `${city.nome} (${city.uf})`,
+        title: `${city.nome || city.name} (${city.uf})`,
         meta: city.stateName,
         pop: city.pop
       }));
@@ -1999,6 +2072,7 @@
     elements["selected-density"].textContent = formatDensity(area ? totalPopulation / area : null);
     elements["selected-rank"].textContent = "-";
     elements["selected-context"].textContent = "27 UF";
+    renderAtlasSimPanel(null);
     renderGeneralPanel("brazil");
   }
 
@@ -2018,6 +2092,7 @@
     elements["selected-density"].textContent = formatDensity(area ? (state.pop || 0) / area : null);
     elements["selected-rank"].textContent = rankText(Array.from(stateById.values()), state.id);
     elements["selected-context"].textContent = state.regiao || "Brasil";
+    renderAtlasSimPanel(state);
     renderGeneralPanel("state", state);
     updateSelectedStateSource();
     savePreferences();
@@ -2067,6 +2142,7 @@
     elements["selected-density"].textContent = formatDensity(area ? (props.pop || 0) / area : null);
     elements["selected-rank"].textContent = props.rank ? `${props.rank}º na UF` : "-";
     elements["selected-context"].textContent = props.stateName || props.uf;
+    renderAtlasSimPanel(state || null, props);
     renderGeneralPanel("city", props);
     updateRankingActive();
     if (options.fly !== false) {
@@ -2094,6 +2170,433 @@
 
     renderGeneralCards("Brasil", analysisCards("brazil"));
     elements["general-note"].textContent = analysisNote();
+  }
+
+  const atlasSimCache = new Map();
+  let atlasRegistryPromise = null;
+
+  function getStaticAtlasRegistry() {
+    return {
+      states: ATLAS_SIM_PACKS,
+      cities: ATLAS_SIM_CITY_PACKS
+    };
+  }
+
+  async function loadAtlasRegistry() {
+    if (!atlasRegistryPromise) {
+      atlasRegistryPromise = fetchJson("data/atlas-registry.json").catch(() => getStaticAtlasRegistry());
+    }
+    return atlasRegistryPromise;
+  }
+
+  function atlasStateConfig(registry, uf) {
+    return registry && registry.states && registry.states[uf] ? registry.states[uf] : ATLAS_SIM_PACKS[uf];
+  }
+
+  function atlasCityConfig(registry, cityId) {
+    return registry && registry.cities && registry.cities[cityId] ? registry.cities[cityId] : ATLAS_SIM_CITY_PACKS[cityId];
+  }
+
+  async function loadAtlasSimPack(uf) {
+    if (!uf) return null;
+    if (atlasSimCache.has(uf)) return atlasSimCache.get(uf);
+    const registry = await loadAtlasRegistry();
+    const stateConfig = atlasStateConfig(registry, uf) || {};
+    const basePath = stateConfig.basePath || `data/states/${uf}`;
+    const optionalPacks = stateConfig.optionalPacks || {};
+    const pack = await Promise.all([
+      fetchJson(`${basePath}/state-pack.json`),
+      fetchJson(`${basePath}/synthetic-cohort-pack.json`),
+      fetchJson(`${basePath}/evidence-ledger.json`),
+      fetchJson(`${basePath}/simulations/territorial-base.json`),
+      fetchJson(`${basePath}/manifest.json`),
+      optionalAtlasPack(basePath, optionalPacks.comparisonPack),
+      optionalAtlasPack(basePath, optionalPacks.domainComparisonPack),
+      optionalAtlasPack(basePath, optionalPacks.regionalClusters),
+      optionalAtlasPack(basePath, optionalPacks.scaleComparisonPack),
+      optionalAtlasPack(basePath, optionalPacks.opportunityCards),
+      optionalAtlasPack(basePath, optionalPacks.forecastLedger)
+    ]).then(([statePack, cohortPack, evidenceLedger, simulationPack, manifest, comparisonPack, domainComparisonPack, regionalClusters, scaleComparisonPack, opportunityCards, forecastLedger]) => ({
+      statePack,
+      cohortPack,
+      evidenceLedger,
+      simulationPack,
+      manifest,
+      comparisonPack,
+      domainComparisonPack,
+      regionalClusters,
+      scaleComparisonPack,
+      opportunityCards,
+      forecastLedger,
+      reportPath: stateConfig.report || ""
+    }));
+    atlasSimCache.set(uf, pack);
+    return pack;
+  }
+
+  async function loadAtlasSimCityPack(uf, cityId) {
+    if (!uf || !cityId) return null;
+    const cacheKey = `${uf}:${cityId}`;
+    if (atlasSimCache.has(cacheKey)) return atlasSimCache.get(cacheKey);
+    const registry = await loadAtlasRegistry();
+    const cityConfig = atlasCityConfig(registry, cityId) || {};
+    const basePath = cityConfig.basePath || `data/states/${uf}/cities/${cityId}`;
+    const pack = await Promise.all([
+      fetchJson(`${basePath}/city-pack.json`),
+      fetchJson(`${basePath}/evidence-ledger.json`),
+      fetchJson(`${basePath}/simulations/business-base.json`),
+      fetchJson(`${basePath}/simulations/domain-screening.json`).catch(() => null),
+      fetchJson(`${basePath}/manifest.json`)
+    ]).then(([statePack, evidenceLedger, simulationPack, domainScreening, manifest]) => ({
+      statePack,
+      cohortPack: { archetypes: [] },
+      evidenceLedger,
+      simulationPack,
+      domainScreening,
+      manifest,
+      reportPath: cityConfig.report || (ATLAS_SIM_CITY_PACKS[cityId] ? ATLAS_SIM_CITY_PACKS[cityId].report : "")
+    }));
+    atlasSimCache.set(cacheKey, pack);
+    return pack;
+  }
+
+  function optionalAtlasPack(basePath, relativePath) {
+    if (!relativePath) return Promise.resolve(null);
+    return fetchJson(`${basePath}/${relativePath}`).catch(() => null);
+  }
+
+  function renderAtlasSimPanel(state, cityProps = null) {
+    const panel = elements["atlas-sim-panel"];
+    if (!panel) return;
+    const uf = state && state.sigla;
+    const cityId = cityProps && cityProps.id ? String(cityProps.id) : "";
+    if (!uf) {
+      if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = "piloto público";
+      panel.innerHTML = `<div class="atlas-sim-empty">Selecione Sergipe ou São Paulo para carregar um pacote público validado.</div>`;
+      return;
+    }
+
+    const registryPromise = loadAtlasRegistry();
+
+    registryPromise.then((registry) => {
+      const cityConfig = atlasCityConfig(registry, cityId);
+      const stateConfig = atlasStateConfig(registry, uf);
+      if (cityId && cityConfig) {
+        if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = "carregando cidade";
+        panel.innerHTML = `<div class="atlas-sim-empty">Carregando pacote público de ${escapeHtml(cityProps.name || "cidade")}...</div>`;
+        loadAtlasSimCityPack(uf, cityId)
+          .then((pack) => {
+            if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = pack.manifest.status || "validado";
+            panel.innerHTML = atlasSimHtml(pack);
+          })
+          .catch((error) => {
+            console.warn("Erro ao carregar Atlas Sim municipal", error);
+            if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = "indisponível";
+            panel.innerHTML = `<div class="atlas-sim-empty">Pacote Atlas Sim municipal não carregou. Verifique se o app está sendo servido por um servidor local.</div>`;
+          });
+        return;
+      }
+
+      if (!stateConfig) {
+        if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = "sem pacote";
+        panel.innerHTML = `
+          <div class="atlas-sim-empty">
+            Atlas Sim ainda não tem pacote público para ${escapeHtml(state.nome)}. Os pilotos validados começam por Sergipe e São Paulo.
+          </div>
+        `;
+        return;
+      }
+
+      if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = "carregando";
+      panel.innerHTML = `<div class="atlas-sim-empty">Carregando pacote público de ${escapeHtml(state.nome)}...</div>`;
+
+      loadAtlasSimPack(uf)
+        .then((pack) => {
+          if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = pack.manifest.status || "validado";
+          panel.innerHTML = atlasSimHtml(pack);
+        })
+        .catch((error) => {
+          console.warn("Erro ao carregar Atlas Sim", error);
+          if (elements["atlas-sim-status"]) elements["atlas-sim-status"].textContent = "indisponível";
+          panel.innerHTML = `<div class="atlas-sim-empty">Pacote Atlas Sim não carregou. Verifique se o app está sendo servido por um servidor local.</div>`;
+        });
+    });
+    return;
+  }
+
+  function atlasSimHtml(pack) {
+    const statePack = pack.statePack || {};
+    const diagnostics = statePack.diagnostics || {};
+    const simulation = pack.simulationPack || {};
+    const outputs = simulation.outputs || {};
+    const indicators = Array.isArray(statePack.indicators) ? statePack.indicators : [];
+    const metrics = Array.isArray(outputs.metrics) ? outputs.metrics : [];
+    const recommendations = Array.isArray(outputs.recommendations) ? outputs.recommendations : [];
+    const evidenceEntries = pack.evidenceLedger && Array.isArray(pack.evidenceLedger.entries) ? pack.evidenceLedger.entries : [];
+    const evidenceCount = evidenceEntries.length;
+    const cohortCount = pack.cohortPack && Array.isArray(pack.cohortPack.archetypes) ? pack.cohortPack.archetypes.length : 0;
+    const comparisonPack = pack.comparisonPack || null;
+    const verdict = verdictLabel(statePack.verdict);
+    const reportPath = pack.reportPath || (ATLAS_SIM_PACKS[statePack.uf] ? ATLAS_SIM_PACKS[statePack.uf].report : "reports/sergipe/piloto-atlas-sim.md");
+    const scopeLabel = statePack.cityId ? "Cidade | veredito" : "Veredito territorial";
+
+    return `
+      <div class="atlas-sim-head">
+        <div>
+          <span>${escapeHtml(scopeLabel)}</span>
+          <strong>${escapeHtml(verdict)}</strong>
+        </div>
+        <div>
+          <span>Confiança</span>
+          <strong>${escapeHtml(confidenceLabel(statePack.confidence))}</strong>
+        </div>
+      </div>
+      <div class="atlas-sim-score">
+        <span>Saúde territorial inicial</span>
+        <strong>${formatAtlasScore(statePack.territorialHealthScore)}</strong>
+      </div>
+      <p class="atlas-sim-summary">${escapeHtml(outputs.summary || "Simulação pública em preparação.")}</p>
+      <div class="atlas-sim-grid">
+        ${indicators.slice(0, 4).map((item) => `
+          <div>
+            <span>${escapeHtml(item.label)}</span>
+            <strong>${formatAtlasIndicator(item)}</strong>
+          </div>
+        `).join("")}
+      </div>
+      <div class="atlas-sim-block">
+        <h3>Forças</h3>
+        ${atlasList(diagnostics.strengths, 2)}
+      </div>
+      <div class="atlas-sim-block">
+        <h3>Riscos</h3>
+        ${atlasList(diagnostics.risks, 2)}
+      </div>
+      <div class="atlas-sim-block">
+        <h3>Simulação</h3>
+        <p class="atlas-sim-disclaimer">${escapeHtml(simulation.disclaimer || "Simulação sintética agregada. Não é pesquisa de campo.")}</p>
+        <div class="atlas-sim-tags">
+          ${metrics.map((metric) => `<span>${escapeHtml(metric.label)}: ${escapeHtml(String(metric.value))}${metric.unit ? ` ${escapeHtml(metric.unit)}` : ""}</span>`).join("")}
+        </div>
+      </div>
+      <div class="atlas-sim-block">
+        <h3>Próxima ação</h3>
+        ${recommendations[0] ? `<p>${escapeHtml(recommendations[0].title)}. ${escapeHtml(recommendations[0].rationale)}</p>` : `<p>Adicionar séries setoriais públicas antes de conclusões fortes.</p>`}
+      </div>
+      ${pack.domainScreening ? atlasDomainScreeningHtml(pack.domainScreening) : ""}
+      ${comparisonPack ? atlasComparisonHtml(comparisonPack) : ""}
+      ${pack.domainComparisonPack ? atlasDomainComparisonHtml(pack.domainComparisonPack) : ""}
+      ${pack.scaleComparisonPack ? atlasComparisonHtml(pack.scaleComparisonPack) : ""}
+      ${pack.regionalClusters ? atlasRegionalClustersHtml(pack.regionalClusters) : ""}
+      ${pack.opportunityCards ? atlasOpportunityCardsHtml(pack.opportunityCards) : ""}
+      ${pack.forecastLedger ? atlasForecastLedgerHtml(pack.forecastLedger) : ""}
+      <details class="atlas-sim-details">
+        <summary>Evidence ledger</summary>
+        <div class="atlas-evidence-list">
+          ${evidenceEntries.slice(0, 4).map((entry) => `
+            <div>
+              <span>${escapeHtml(confidenceLabel(entry.confidence))} | ${escapeHtml(entry.kind || "claim")}</span>
+              <strong>${escapeHtml(entry.claim)}</strong>
+              <small>${escapeHtml((entry.sources || []).join(", "))}</small>
+            </div>
+          `).join("")}
+        </div>
+      </details>
+      <a class="atlas-sim-report" href="${escapeHtml(reportPath)}" target="_blank" rel="noreferrer">
+        Abrir relatório público
+      </a>
+      <div class="atlas-sim-foot">
+        <span>${formatNumber(evidenceCount)} evidências</span>
+        <span>${statePack.cityId ? "pacote municipal" : `${formatNumber(cohortCount)} coortes agregadas`}</span>
+        <span>${escapeHtml(pack.manifest && pack.manifest.status ? pack.manifest.status : "draft")}</span>
+      </div>
+    `;
+  }
+
+  function atlasDomainScreeningHtml(screening) {
+    const domains = Array.isArray(screening.domains) ? screening.domains.slice(0, 4) : [];
+    if (!domains.length) return "";
+    return `
+      <div class="atlas-sim-block atlas-domain-screening">
+        <h3>Triagem por domínio</h3>
+        <p>${escapeHtml(screening.disclaimer || "Triagem sintética agregada, não recomendação financeira.")}</p>
+        <div class="atlas-domain-list">
+          ${domains.map((domain) => `
+            <div>
+              <span>${escapeHtml(domain.label)} | ${escapeHtml(domainStanceLabel(domain.stance))}</span>
+              <strong>${formatAtlasScore(domain.readiness)}</strong>
+              <small>${escapeHtml(domain.why)}</small>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function domainStanceLabel(value) {
+    const labels = {
+      investigar: "investigar",
+      faltam_dados: "faltam dados",
+      risco_alto: "risco alto",
+      adiar: "adiar"
+    };
+    return labels[value] || "triagem";
+  }
+
+  function atlasComparisonHtml(comparison) {
+    const metrics = Array.isArray(comparison.metrics) ? comparison.metrics : [];
+    const growth = metrics.find((metric) => metric.id === "gdp_nominal_growth_2022_2023");
+    const readiness = metrics.find((metric) => metric.id === "business_readiness");
+    const cities = Array.isArray(comparison.cities) ? comparison.cities : [];
+    const cityLabels = new Map(cities.map((city) => [city.cityId, city.name]));
+    return `
+      <div class="atlas-sim-block atlas-comparison">
+        <h3>Comparação municipal</h3>
+        <p>${escapeHtml(comparison.title || "Comparação municipal pública")}</p>
+        <div class="atlas-sim-tags">
+          ${growth ? comparisonMetricTags(growth, cityLabels) : ""}
+          ${readiness ? comparisonMetricTags(readiness, cityLabels) : ""}
+        </div>
+        <a class="atlas-sim-report" href="${escapeHtml(comparison.reportPath || "#")}" target="_blank" rel="noreferrer">
+          Abrir comparação
+        </a>
+      </div>
+    `;
+  }
+
+  function atlasDomainComparisonHtml(comparison) {
+    const domains = Array.isArray(comparison.domains) ? comparison.domains.slice(0, 5) : [];
+    const cities = Array.isArray(comparison.cities) ? comparison.cities : [];
+    const cityLabels = new Map(cities.map((city) => [city.cityId, city.name]));
+    if (!domains.length) return "";
+    return `
+      <div class="atlas-sim-block atlas-domain-comparison">
+        <h3>Matriz por domínio</h3>
+        <p>${escapeHtml(comparison.title || "Matriz pública de decisão por domínio")}</p>
+        <div class="atlas-domain-matrix">
+          ${domains.map((domain) => `
+            <div>
+              <span>${escapeHtml(domain.label)} | líder: ${escapeHtml(cityLabels.get(domain.leaderCityId) || domain.leaderCityId)}</span>
+              <strong>${escapeHtml(domainStanceLabel(domain.stance))}</strong>
+              <small>${escapeHtml(domain.interpretation)}</small>
+              <div class="atlas-domain-mini-tags">
+                ${Object.entries(domain.values || {}).map(([cityId, value]) => `
+                  <em>${escapeHtml(cityLabels.get(cityId) || cityId)} ${formatAtlasScore(value.readiness)}</em>
+                `).join("")}
+              </div>
+            </div>
+          `).join("")}
+        </div>
+        <a class="atlas-sim-report" href="${escapeHtml(comparison.reportPath || "#")}" target="_blank" rel="noreferrer">
+          Abrir matriz de domínios
+        </a>
+      </div>
+    `;
+  }
+
+  function atlasRegionalClustersHtml(pack) {
+    const clusters = Array.isArray(pack.clusters) ? pack.clusters.slice(0, 4) : [];
+    if (!clusters.length) return "";
+    return `
+      <div class="atlas-sim-block atlas-regional-clusters">
+        <h3>Clusters regionais</h3>
+        <p>${escapeHtml(pack.title || "Clusters públicos iniciais")}</p>
+        <div class="atlas-domain-matrix">
+          ${clusters.map((cluster) => `
+            <div>
+              <span>${escapeHtml(cluster.label)}</span>
+              <strong>${escapeHtml(cluster.role)}</strong>
+              <small>Precisa de: ${escapeHtml((cluster.needs || []).slice(0, 4).join(", "))}</small>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function atlasOpportunityCardsHtml(pack) {
+    const cards = Array.isArray(pack.cards) ? pack.cards.slice(0, 4) : [];
+    if (!cards.length) return "";
+    return `
+      <div class="atlas-sim-block atlas-opportunity-cards">
+        <h3>Oportunidades</h3>
+        <p>${escapeHtml(pack.disclaimer || "Triagens públicas, não recomendações finais.")}</p>
+        <div class="atlas-domain-list">
+          ${cards.map((card) => `
+            <div>
+              <span>${escapeHtml(card.label)} | ${escapeHtml(domainStanceLabel(card.stance))}</span>
+              <strong>${formatAtlasScore(card.score)}</strong>
+              <small>${escapeHtml(card.why)} Próxima validação: ${escapeHtml(card.nextValidation)}</small>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function atlasForecastLedgerHtml(ledger) {
+    const forecasts = Array.isArray(ledger.forecasts) ? ledger.forecasts.slice(0, 2) : [];
+    if (!forecasts.length) return "";
+    return `
+      <div class="atlas-sim-block atlas-forecast-ledger">
+        <h3>Forecast ledger</h3>
+        <div class="atlas-domain-list">
+          ${forecasts.map((forecast) => `
+            <div>
+              <span>${escapeHtml(forecast.prediction)} | ${Math.round(Number(forecast.confidence) * 100)}%</span>
+              <strong>${escapeHtml(forecast.question)}</strong>
+              <small>Resolução: ${escapeHtml(forecast.resolutionMetric)} Horizonte: ${escapeHtml(forecast.horizon)}</small>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function comparisonMetricTags(metric, cityLabels) {
+    return Object.entries(metric.values || {}).map(([cityId, value]) => {
+      const label = cityLabels.get(cityId) || cityId;
+      const formatted = metric.unit === "%" ? `${formatNumber(value)}%` : `${formatNumber(value)} ${metric.unit}`;
+      return `<span>${escapeHtml(label)}: ${escapeHtml(formatted)}</span>`;
+    }).join("");
+  }
+
+  function atlasList(items, limit) {
+    const safeItems = Array.isArray(items) ? items.slice(0, limit) : [];
+    if (!safeItems.length) return `<p>Sem item público nesta versão.</p>`;
+    return `<ul>${safeItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  }
+
+  function formatAtlasIndicator(item) {
+    const value = Number(item.value);
+    if (item.unit === "R$") return formatCurrencyShort(value);
+    if (item.unit === "%") return `${formatNumber(value)}%`;
+    if (item.unit === "R$/habitante") return formatCurrency(value);
+    return `${formatNumber(value)} ${item.unit ? escapeHtml(item.unit) : ""}`.trim();
+  }
+
+  function formatAtlasScore(value) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return "-";
+    return `${Math.round(number)}/100`;
+  }
+
+  function verdictLabel(value) {
+    const labels = {
+      melhorou_forte: "Melhorou forte",
+      melhorou: "Melhorou",
+      melhorou_com_alertas: "Melhorou com alertas",
+      estavel: "Estável",
+      piorou: "Piorou",
+      piorou_forte: "Piorou forte",
+      inconclusivo: "Inconclusivo"
+    };
+    return labels[value] || "Inconclusivo";
+  }
+
+  function confidenceLabel(value) {
+    const labels = { baixa: "Baixa", media: "Média", alta: "Alta" };
+    return labels[value] || "-";
   }
 
   function renderGdpHistoryChart(history) {

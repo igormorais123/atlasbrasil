@@ -1,0 +1,39 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "entries": [
+    {
+      "id": "sp-pop-2022",
+      "claim": "São Paulo tinha 44.411.238 habitantes residentes no Censo Demográfico 2022.",
+      "kind": "factual",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-4714-pop-2022"],
+      "limits": ["População não mede renda, acesso ou qualidade de vida."]
+    },
+    {
+      "id": "sp-gdp-2023",
+      "claim": "O PIB corrente de São Paulo em 2023 foi de R$ 3.444.814.033.000.",
+      "kind": "factual",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-pib-2022-2023"],
+      "limits": ["PIB corrente é nominal e não mostra distribuição territorial."]
+    },
+    {
+      "id": "sp-municipalities",
+      "claim": "São Paulo tem 645 municípios na API pública de localidades do IBGE.",
+      "kind": "factual",
+      "confidence": "alta",
+      "sources": ["ibge-localidades-municipios-sp"],
+      "limits": ["Número de municípios não mede complexidade intramunicipal."]
+    },
+    {
+      "id": "sp-scale-test",
+      "claim": "São Paulo é um bom teste de escala para o Atlas Sim porque combina grande população, alto PIB e muitos municípios.",
+      "kind": "inference",
+      "confidence": "media",
+      "sources": ["sp-pop-2022", "sp-gdp-2023", "sp-municipalities"],
+      "limits": ["A inferência é sobre adequação ao teste técnico, não sobre melhora social."]
+    }
+  ]
+}

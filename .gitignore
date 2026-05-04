@@ -2,6 +2,8 @@
 .env
 .env.*
 !.env.example
+*.env-backup
+.*-env-backup
 venv/
 .venv/
 env/
@@ -33,6 +35,7 @@ out/
 
 # Local logs and temporary files
 *.log
+*.jsonl
 logs/
 tmp/
 temp/
@@ -57,8 +60,30 @@ desktop.ini
 *.p12
 *.pfx
 *.crt
+auth.json
+.secrets/
+secrets/
 *.bak
 *.orig
+
+# Private intelligence artifacts
+.artifacts/
+.helena_upload/
+private/
+data/private/
+reports/private/
+data/**/raw/
+reports/**/raw/
+*.raw.json
+*.personas.json
+*personas*.json
+memory/
+memories/
+memoria/
+memorias/
+*.sqlite
+*.sqlite3
+*.db
 
 # Generated archives
 *.zip

@@ -1,0 +1,109 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2803500",
+  "name": "Lagarto",
+  "generatedAt": "2026-05-04T06:34:21Z",
+  "territorialHealthScore": 51,
+  "verdict": "inconclusivo",
+  "confidence": "media",
+  "indicators": [
+    {
+      "id": "population_2022",
+      "label": "População residente",
+      "value": 101579,
+      "unit": "pessoas",
+      "year": 2022,
+      "kind": "measured",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-4714-lagarto-pop-2022"]
+    },
+    {
+      "id": "gdp_current_2023",
+      "label": "PIB corrente",
+      "value": 2177825000,
+      "unit": "R$",
+      "year": 2023,
+      "kind": "measured",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-lagarto-pib-2002-2023"]
+    },
+    {
+      "id": "gdp_per_capita_proxy_2023",
+      "label": "PIB corrente por habitante",
+      "value": 21439.72,
+      "unit": "R$/habitante",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-5938-lagarto-pib-2002-2023", "ibge-sidra-4714-lagarto-pop-2022"]
+    },
+    {
+      "id": "gdp_nominal_growth_2022_2023",
+      "label": "Crescimento nominal do PIB",
+      "value": 2.38,
+      "unit": "%",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-lagarto-pib-2002-2023"]
+    },
+    {
+      "id": "territorial_role",
+      "label": "Papel territorial",
+      "value": 1,
+      "unit": "região imediata",
+      "year": 2026,
+      "kind": "measured",
+      "direction": "stable",
+      "sources": ["ibge-localidades-lagarto"]
+    }
+  ],
+  "diagnostics": {
+    "strengths": [
+      "Município-polo com população semelhante a Itabaiana, útil para comparação controlada.",
+      "Integra a região intermediária de Itabaiana e amplia a leitura do agreste sergipano.",
+      "Escala adequada para investigar serviços regionais, saúde, educação e formação profissional."
+    ],
+    "weaknesses": [
+      "Crescimento nominal do PIB 2022-2023 é baixo nesta primeira leitura.",
+      "PIB por habitante proxy fica abaixo de Aracaju e Itabaiana.",
+      "Faltam emprego, renda, educação, saúde, mobilidade, segurança, fluxo e concorrência."
+    ],
+    "opportunities": [
+      "Testar comparação entre polos com população parecida e sinais econômicos diferentes.",
+      "Investigar serviços públicos e privados que não dependem apenas de PIB nominal.",
+      "Construir leitura regional mais justa do agreste sergipano."
+    ],
+    "risks": [
+      "Interpretar crescimento nominal baixo como piora ampla sem olhar setores e inflação.",
+      "Subestimar oportunidades locais por usar apenas PIB e população.",
+      "Recomendar negócio sem dados de demanda, renda, concorrência e custos."
+    ],
+    "limitations": [
+      "Veredito inconclusivo por falta de dados setoriais.",
+      "Score inicial é heurístico e não indicador oficial.",
+      "Não há análise por bairro, povoado ou zona comercial nesta versão."
+    ]
+  },
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-lagarto-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente de Lagarto, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/2803500/v/93/p/2022",
+      "accessedAt": "2026-05-04T06:34:21Z"
+    },
+    {
+      "id": "ibge-sidra-5938-lagarto-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - PIB corrente de Lagarto",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/2803500/v/37/p/all",
+      "accessedAt": "2026-05-04T06:34:21Z"
+    },
+    {
+      "id": "ibge-localidades-lagarto",
+      "label": "IBGE API de Localidades - Município de Lagarto",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/2803500",
+      "accessedAt": "2026-05-04T06:34:21Z"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "version": "0.1.0",
+  "researchQuestion": "Sergipe melhorou, piorou, estabilizou ou permanece inconclusivo nos ciclos públicos disponíveis, considerando população, estrutura municipal, PIB corrente e oportunidades territoriais iniciais?",
+  "scope": {
+    "level": "state",
+    "uf": "SE",
+    "domain": "territorial",
+    "period": {
+      "startYear": 2002,
+      "endYear": 2023
+    }
+  },
+  "corpus": [
+    {
+      "id": "ibge-sidra-4714-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n3/28/v/93/p/2022",
+      "evidenceLevel": "primary_official",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    },
+    {
+      "id": "ibge-sidra-5938-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - Produto Interno Bruto a preços correntes",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n3/28/v/37/p/all",
+      "evidenceLevel": "primary_official",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    },
+    {
+      "id": "ibge-localidades-municipios-se",
+      "label": "IBGE API de Localidades - Municípios de Sergipe",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/28/municipios?orderBy=nome",
+      "evidenceLevel": "primary_official",
+      "accessedAt": "2026-05-04T05:57:54Z"
+    }
+  ],
+  "criteria": {
+    "inclusion": [
+      "Fontes oficiais públicas com URL acessível.",
+      "Indicadores estaduais com unidade, ano e fonte explícitos.",
+      "Inferências limitadas ao que os dados iniciais sustentam."
+    ],
+    "exclusion": [
+      "Bases privadas, agentes individuais, memórias, logs ou prompts internos.",
+      "Conclusões sobre melhora social ampla sem séries setoriais suficientes.",
+      "Previsões públicas sem horizonte, métrica e ledger posterior."
+    ]
+  },
+  "claims": [
+    {
+      "id": "claim-se-pop-2022",
+      "text": "Sergipe tinha 2.210.004 habitantes no Censo Demográfico 2022.",
+      "kind": "factual",
+      "evidenceLevel": "primary_official",
+      "sources": ["ibge-sidra-4714-pop-2022"],
+      "confidence": "alta",
+      "limitations": ["Indicador populacional de 2022 não mede sozinho melhora ou piora territorial."]
+    },
+    {
+      "id": "claim-se-pib-2023",
+      "text": "O PIB estadual corrente de Sergipe em 2023 foi de R$ 60.816.662.000.",
+      "kind": "factual",
+      "evidenceLevel": "primary_official",
+      "sources": ["ibge-sidra-5938-pib-2002-2023"],
+      "confidence": "alta",
+      "limitations": ["PIB corrente não desconta inflação e não descreve distribuição de renda."]
+    },
+    {
+      "id": "claim-se-municipios",
+      "text": "Sergipe possui 75 municípios na API pública de localidades do IBGE.",
+      "kind": "factual",
+      "evidenceLevel": "primary_official",
+      "sources": ["ibge-localidades-municipios-se"],
+      "confidence": "alta",
+      "limitations": ["Quantidade de municípios descreve estrutura territorial, não desempenho."]
+    },
+    {
+      "id": "claim-se-verdict-inicial",
+      "text": "Com os dados iniciais de M1, o veredito territorial agregado deve permanecer inconclusivo até incorporar séries sociais, saúde, educação, trabalho e segurança.",
+      "kind": "inference",
+      "evidenceLevel": "expert_interpretation",
+      "sources": ["ibge-sidra-4714-pop-2022", "ibge-sidra-5938-pib-2002-2023", "ibge-localidades-municipios-se"],
+      "confidence": "media",
+      "limitations": ["Inferência metodológica conservadora; não é conclusão final sobre qualidade de vida."]
+    }
+  ],
+  "redTeam": [
+    {
+      "hypothesis": "O crescimento nominal do PIB pode sugerir melhora, mas pode estar dominado por inflação e composição setorial.",
+      "wouldChangeConclusionIf": "Séries reais per capita, emprego, renda, educação, saúde e segurança confirmarem avanço consistente."
+    },
+    {
+      "hypothesis": "O pacote inicial pode subestimar oportunidades locais ao olhar apenas o nível estadual.",
+      "wouldChangeConclusionIf": "Pacotes municipais mostrarem clusters fortes em Aracaju, Itabaiana, Estância, Lagarto ou outras centralidades."
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Completar a base setorial antes de afirmar melhora ampla",
+      "action": "Adicionar séries oficiais de saúde, educação, trabalho, renda e segurança antes do veredito final.",
+      "risk": "Conclusões prematuras podem transformar sinal econômico nominal em diagnóstico social indevido.",
+      "kpi": "Percentual de indicadores factuais com série temporal e fonte oficial.",
+      "confidence": "alta"
+    },
+    {
+      "title": "Usar Sergipe como piloto de profundidade",
+      "action": "Começar no nível estadual e evoluir para municípios-polo com pacotes municipais.",
+      "risk": "O diagnóstico estadual pode esconder diferenças entre capital, agreste, sertão e litoral.",
+      "kpi": "Número de municípios com pacote público validado.",
+      "confidence": "media"
+    }
+  ],
+  "limitations": [
+    "Este protocolo inicial usa apenas fontes oficiais públicas já coletadas para M1.",
+    "Não inclui bases privadas, personas individuais nem pesquisa de campo.",
+    "O veredito territorial permanece conservador até haver séries setoriais suficientes.",
+    "PIB corrente não é PIB real e não deve ser usado sozinho como prova de melhora social."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SE",
+    "level": "state",
+    "name": "Sergipe"
+  },
+  "sourceSummary": {
+    "privateSource": "gerador privado sanitizado",
+    "rawPersonaCount": 0,
+    "publishedPersonaCount": 0,
+    "aggregationMethod": "Arquétipos públicos agregados, sem indivíduos, sem falas brutas e sem atributos identificáveis."
+  },
+  "privacy": {
+    "rawPersonasPublished": false,
+    "redactionLevel": "aggregate_only",
+    "policy": "Somente coortes agregadas podem ser publicadas. Pessoas sintéticas individuais, prompts internos, logs e memórias permanecem privados."
+  },
+  "archetypes": [
+    {
+      "id": "se-urbano-servicos",
+      "label": "Urbano de serviços",
+      "weight": 0.36,
+      "attributes": {
+        "territorio": "capital e áreas urbanas integradas",
+        "sensibilidade": "emprego, mobilidade, custo de vida e serviços públicos",
+        "uso": "simulação territorial agregada"
+      },
+      "decisionDrivers": [
+        "renda disponível",
+        "mobilidade cotidiana",
+        "acesso a saúde e educação",
+        "preço de serviços essenciais"
+      ],
+      "confidence": "baixa",
+      "limitations": [
+        "Arquétipo inicial para demonstração, ainda não calibrado com microdados públicos."
+      ]
+    },
+    {
+      "id": "se-interior-comercio",
+      "label": "Interior comercial e municipal",
+      "weight": 0.34,
+      "attributes": {
+        "territorio": "municípios médios e centralidades locais",
+        "sensibilidade": "comércio, prefeitura, transporte regional e renda local",
+        "uso": "simulação de oportunidades municipais"
+      },
+      "decisionDrivers": [
+        "fluxo regional",
+        "emprego local",
+        "serviços de proximidade",
+        "dependência de polos municipais"
+      ],
+      "confidence": "baixa",
+      "limitations": [
+        "Peso inicial heurístico; exige calibração com dados municipais e setoriais."
+      ]
+    },
+    {
+      "id": "se-rural-vulneravel",
+      "label": "Rural e vulnerabilidade territorial",
+      "weight": 0.3,
+      "attributes": {
+        "territorio": "áreas rurais, pequenas cidades e periferias de menor densidade",
+        "sensibilidade": "renda, saúde, transporte, água, educação e assistência",
+        "uso": "red team de políticas públicas e oportunidades de serviço"
+      },
+      "decisionDrivers": [
+        "acesso físico a serviços",
+        "renda familiar",
+        "vulnerabilidade climática",
+        "dependência de programas públicos"
+      ],
+      "confidence": "baixa",
+      "limitations": [
+        "Arquétipo agregado não substitui pesquisa de campo nem diagnóstico municipal."
+      ]
+    }
+  ],
+  "limitations": [
+    "Este pacote não publica persona individual.",
+    "Os pesos são iniciais e servem para demonstrar o contrato público de simulação.",
+    "Nenhuma saída deve ser tratada como pesquisa eleitoral, pesquisa de opinião ou verdade populacional.",
+    "Calibração futura exige dados oficiais adicionais e validação externa."
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "name": "São Paulo",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "territorialHealthScore": 58,
+  "verdict": "inconclusivo",
+  "confidence": "media",
+  "indicators": [
+    {
+      "id": "population_2022",
+      "label": "População residente",
+      "value": 44411238,
+      "unit": "pessoas",
+      "year": 2022,
+      "kind": "measured",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-4714-pop-2022"]
+    },
+    {
+      "id": "municipalities_count",
+      "label": "Municípios",
+      "value": 645,
+      "unit": "municípios",
+      "year": 2026,
+      "kind": "measured",
+      "direction": "stable",
+      "sources": ["ibge-localidades-municipios-sp"]
+    },
+    {
+      "id": "gdp_current_2023",
+      "label": "PIB corrente",
+      "value": 3444814033000,
+      "unit": "R$",
+      "year": 2023,
+      "kind": "measured",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-pib-2022-2023"]
+    },
+    {
+      "id": "gdp_per_capita_proxy_2023",
+      "label": "PIB corrente por habitante",
+      "value": 77565.13,
+      "unit": "R$/habitante",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-5938-pib-2022-2023", "ibge-sidra-4714-pop-2022"]
+    },
+    {
+      "id": "gdp_nominal_growth_2022_2023",
+      "label": "Crescimento nominal do PIB",
+      "value": 10.05,
+      "unit": "%",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-pib-2022-2023"]
+    }
+  ],
+  "diagnostics": {
+    "strengths": [
+      "Maior escala econômica e populacional do país, útil para stress test do Atlas Sim.",
+      "Grande diversidade territorial para testar clusters e carregamento sob demanda.",
+      "Séries oficiais de população, PIB e municípios disponíveis em fonte pública."
+    ],
+    "weaknesses": [
+      "Estado grande demais para leitura estadual única.",
+      "Média estadual oculta diferenças entre capital, metrópole, litoral, indústria, agro e interior.",
+      "Pacote inicial ainda não inclui emprego formal, renda, saúde, educação, segurança e orçamento."
+    ],
+    "opportunities": [
+      "Criar prova de escala para o Atlas Sim.",
+      "Testar clusters regionais e cidade-piloto fora da capital.",
+      "Preparar contribuição pública por regiões e city packs."
+    ],
+    "risks": [
+      "Confundir volume econômico absoluto com melhora territorial generalizada.",
+      "Deixar a capital dominar a leitura do estado inteiro.",
+      "Publicar score agregado sem explicar lacunas regionais."
+    ],
+    "limitations": [
+      "Veredito inconclusivo por falta de séries setoriais no pacote inicial.",
+      "Scores são heurísticos para orientar investigação.",
+      "São Paulo deve ser analisado por regiões e cidades-polo."
+    ]
+  },
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n3/35/v/93/p/2022",
+      "accessedAt": "2026-05-04T08:00:00Z"
+    },
+    {
+      "id": "ibge-sidra-5938-pib-2022-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - Produto Interno Bruto a preços correntes",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n3/35/v/37/p/2022,2023",
+      "accessedAt": "2026-05-04T08:00:00Z"
+    },
+    {
+      "id": "ibge-localidades-municipios-sp",
+      "label": "IBGE API de Localidades - Municípios de São Paulo",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios?orderBy=nome",
+      "accessedAt": "2026-05-04T08:00:00Z"
+    }
+  ]
+}

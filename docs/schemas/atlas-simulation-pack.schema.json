@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlasbrasil.local/schemas/atlas-simulation-pack.schema.json",
+  "title": "AtlasSimulationPack",
+  "type": "object",
+  "required": ["version", "scope", "simulation", "inputs", "outputs", "disclaimer", "limitations"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "scope": {
+      "type": "object",
+      "required": ["uf", "level"],
+      "additionalProperties": false,
+      "properties": {
+        "uf": { "type": "string", "minLength": 2, "maxLength": 2 },
+        "level": { "enum": ["state", "region", "city", "archetype"] },
+        "cityId": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "simulation": {
+      "type": "object",
+      "required": ["id", "type", "scenario", "seed", "generatedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["territorial", "business", "career", "public_policy", "public_opinion"] },
+        "scenario": { "enum": ["base", "otimista", "estresse", "custom"] },
+        "seed": { "type": "string", "minLength": 1 },
+        "generatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "required": ["facts", "assumptions"],
+      "additionalProperties": false,
+      "properties": {
+        "facts": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+        "assumptions": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+        "events": { "type": "array", "items": { "$ref": "#/$defs/event" } }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["summary", "metrics", "recommendations"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "type": "string", "minLength": 1 },
+        "metrics": { "type": "array", "items": { "$ref": "#/$defs/metric" } },
+        "recommendations": { "type": "array", "items": { "$ref": "#/$defs/recommendation" } },
+        "curves": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "points"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string" },
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["x", "y"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "x": { "type": ["number", "string"] },
+                    "y": { "type": "number" },
+                    "phase": { "enum": ["incubacao", "erupcao", "decaimento"] }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "verifiers": { "type": "array", "items": { "type": "string" } },
+    "disclaimer": { "type": "string", "minLength": 1 },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "sources": { "type": "array", "items": { "type": "string" } },
+    "manifestHash": { "type": "string" }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "required": ["id", "text", "kind", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" },
+        "kind": { "enum": ["factual", "inference", "forecast", "assumption", "opinion"] },
+        "confidence": { "enum": ["baixa", "media", "alta"] },
+        "sources": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["id", "type", "text", "intensity"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "text": { "type": "string" },
+        "intensity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "required": ["id", "label", "value", "unit", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "kind": { "enum": ["measured", "proxy", "estimated", "simulation"] },
+        "confidence": { "enum": ["baixa", "media", "alta"] }
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "required": ["id", "title", "rationale", "risk", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "rationale": { "type": "string" },
+        "risk": { "type": "string" },
+        "confidence": { "enum": ["baixa", "media", "alta"] }
+      }
+    }
+  }
+}

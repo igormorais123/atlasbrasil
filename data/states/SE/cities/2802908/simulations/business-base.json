@@ -1,0 +1,113 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SE",
+    "level": "city",
+    "cityId": "2802908",
+    "name": "Itabaiana"
+  },
+  "simulation": {
+    "id": "itabaiana-business-base-001",
+    "type": "business",
+    "scenario": "base",
+    "seed": "atlas-itabaiana-m3-2026-05-04",
+    "generatedAt": "2026-05-04T06:26:42Z"
+  },
+  "inputs": {
+    "facts": [
+      {
+        "id": "fact-itabaiana-population-2022",
+        "text": "População residente de 103.440 habitantes em 2022.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-4714-itabaiana-pop-2022"]
+      },
+      {
+        "id": "fact-itabaiana-gdp-2023",
+        "text": "PIB corrente de R$ 2.942.686.000 em 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-itabaiana-pib-2002-2023"]
+      },
+      {
+        "id": "fact-itabaiana-growth",
+        "text": "Crescimento nominal do PIB de 17,23% entre 2022 e 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-itabaiana-pib-2002-2023"]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "assumption-regional-pole",
+        "text": "Um município-polo regional com mais de 100 mil habitantes e crescimento nominal forte justifica triagem de comércio e serviços, mas não recomendação sem dados locais de demanda.",
+        "kind": "assumption",
+        "confidence": "media",
+        "sources": []
+      }
+    ],
+    "events": []
+  },
+  "outputs": {
+    "summary": "A simulação de negócio base indica Itabaiana como bom segundo polo para comparar com Aracaju. O sinal nominal do PIB é forte, mas deve ser tratado como hipótese de dinamismo regional até entrar emprego, renda, fluxo, concorrência e custos.",
+    "metrics": [
+      {
+        "id": "business_readiness",
+        "label": "Prontidão para hipótese de negócio",
+        "value": 53,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "regional_pole_signal",
+        "label": "Sinal de polo regional",
+        "value": 58,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "evidence_coverage",
+        "label": "Cobertura inicial de evidência",
+        "value": 34,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-itabaiana-commerce-flow",
+        "title": "Medir fluxo comercial regional antes de recomendação",
+        "rationale": "Itabaiana parece promissora como polo, mas oportunidade depende de fluxo de consumidores, renda, concorrência e custos.",
+        "risk": "Crescimento nominal pode induzir recomendação apressada.",
+        "confidence": "alta"
+      },
+      {
+        "id": "rec-itabaiana-compare-aracaju",
+        "title": "Comparar Itabaiana com Aracaju",
+        "rationale": "A comparação capital versus polo regional ajuda o Atlas a explicar decisões fora da capital.",
+        "risk": "Sem padronização setorial, a comparação pode virar ranking simplista.",
+        "confidence": "media"
+      }
+    ]
+  },
+  "verifiers": [
+    "fontes oficiais identificadas",
+    "simulação marcada como simulação",
+    "sem recomendação financeira direta",
+    "sem dados privados"
+  ],
+  "disclaimer": "Esta é uma simulação sintética agregada de triagem territorial, não conselho financeiro, pesquisa de mercado conclusiva ou recomendação de investimento.",
+  "limitations": [
+    "Não há dados de comércio, fluxo, concorrência ou custos nesta versão.",
+    "Crescimento do PIB é nominal, não real.",
+    "As oportunidades citadas são hipóteses para investigação."
+  ],
+  "sources": [
+    "ibge-sidra-4714-itabaiana-pop-2022",
+    "ibge-sidra-5938-itabaiana-pib-2002-2023",
+    "ibge-localidades-itabaiana"
+  ]
+}

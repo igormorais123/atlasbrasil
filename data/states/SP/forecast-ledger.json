@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "forecasts": [
+    {
+      "id": "sp-pack-performance-001",
+      "question": "O pacote público inicial de SP carrega no painel Atlas Sim sem travar a navegação local?",
+      "horizon": "2026-05-04",
+      "baseRate": "Pacotes estaduais pequenos já carregaram para Sergipe.",
+      "prediction": "provavel",
+      "confidence": 0.75,
+      "resolutionMetric": "Painel renderiza em navegador local e validação automatizada passa.",
+      "status": "open",
+      "limits": ["Forecast técnico de carregamento, não previsão socioeconômica."]
+    },
+    {
+      "id": "sp-cluster-need-001",
+      "question": "A análise estadual de SP exigirá clusters regionais antes de recomendações de negócio ou carreira?",
+      "horizon": "2026-06-30",
+      "baseRate": "SP tem 645 municípios e forte heterogeneidade territorial.",
+      "prediction": "muito_provavel",
+      "confidence": 0.85,
+      "resolutionMetric": "Primeira revisão técnica registra necessidade de cluster/cidade para recomendações práticas.",
+      "status": "open",
+      "limits": ["Previsão metodológica, não conclusão sobre o estado."]
+    }
+  ],
+  "limitations": [
+    "Forecasts públicos devem ter horizonte, métrica de resolução e atualização futura.",
+    "Sem resolução posterior, não há Brier score."
+  ]
+}

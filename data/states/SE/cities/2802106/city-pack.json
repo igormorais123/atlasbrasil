@@ -1,0 +1,109 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2802106",
+  "name": "Estância",
+  "generatedAt": "2026-05-04T06:38:52Z",
+  "territorialHealthScore": 47,
+  "verdict": "inconclusivo",
+  "confidence": "media",
+  "indicators": [
+    {
+      "id": "population_2022",
+      "label": "População residente",
+      "value": 65078,
+      "unit": "pessoas",
+      "year": 2022,
+      "kind": "measured",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-4714-estancia-pop-2022"]
+    },
+    {
+      "id": "gdp_current_2023",
+      "label": "PIB corrente",
+      "value": 1473225000,
+      "unit": "R$",
+      "year": 2023,
+      "kind": "measured",
+      "direction": "down",
+      "sources": ["ibge-sidra-5938-estancia-pib-2002-2023"]
+    },
+    {
+      "id": "gdp_per_capita_proxy_2023",
+      "label": "PIB corrente por habitante",
+      "value": 22637.83,
+      "unit": "R$/habitante",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-5938-estancia-pib-2002-2023", "ibge-sidra-4714-estancia-pop-2022"]
+    },
+    {
+      "id": "gdp_nominal_growth_2022_2023",
+      "label": "Crescimento nominal do PIB",
+      "value": -38.19,
+      "unit": "%",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "down",
+      "sources": ["ibge-sidra-5938-estancia-pib-2002-2023"]
+    },
+    {
+      "id": "territorial_role",
+      "label": "Papel territorial",
+      "value": 1,
+      "unit": "região imediata",
+      "year": 2026,
+      "kind": "measured",
+      "direction": "stable",
+      "sources": ["ibge-localidades-estancia"]
+    }
+  ],
+  "diagnostics": {
+    "strengths": [
+      "Município-polo da região imediata de Estância, útil para eixo leste/litoral.",
+      "Amplia a análise para fora do eixo capital-agreste.",
+      "PIB corrente tem série oficial longa, permitindo investigar choques setoriais."
+    ],
+    "weaknesses": [
+      "Queda nominal forte do PIB em 2023 exige investigação setorial.",
+      "População menor reduz comparabilidade direta com Aracaju, Itabaiana e Lagarto.",
+      "Faltam dados de emprego, renda, turismo, indústria, serviços e vulnerabilidade."
+    ],
+    "opportunities": [
+      "Investigar litoral/interior, turismo, serviços e estrutura produtiva local.",
+      "Criar caso de red team para queda econômica nominal.",
+      "Evitar que o Atlas vire só mapa de capitais e polos do agreste."
+    ],
+    "risks": [
+      "Confundir queda nominal do PIB com piora social total.",
+      "Ignorar composição setorial ou evento específico.",
+      "Gerar recomendação negativa sem dados de emprego, renda e serviços."
+    ],
+    "limitations": [
+      "Veredito inconclusivo por falta de dados setoriais.",
+      "Score inicial é heurístico e não indicador oficial.",
+      "Queda nominal precisa ser explicada por setor antes de conclusão forte."
+    ]
+  },
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-estancia-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente de Estância, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/2802106/v/93/p/2022",
+      "accessedAt": "2026-05-04T06:38:52Z"
+    },
+    {
+      "id": "ibge-sidra-5938-estancia-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - PIB corrente de Estância",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/2802106/v/37/p/all",
+      "accessedAt": "2026-05-04T06:38:52Z"
+    },
+    {
+      "id": "ibge-localidades-estancia",
+      "label": "IBGE API de Localidades - Município de Estância",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/2802106",
+      "accessedAt": "2026-05-04T06:38:52Z"
+    }
+  ]
+}

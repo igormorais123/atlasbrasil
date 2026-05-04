@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlasbrasil.local/schemas/atlas-regional-clusters.schema.json",
+  "title": "AtlasRegionalClusters",
+  "type": "object",
+  "required": ["version", "uf", "generatedAt", "title", "clusters", "limitations", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string" },
+    "uf": { "type": "string", "minLength": 2, "maxLength": 2 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "title": { "type": "string" },
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "role", "pilotCities", "needs"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "role": { "type": "string" },
+          "pilotCities": { "type": "array", "items": { "type": "string" } },
+          "needs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "sources": { "type": "array", "items": { "type": "string" } }
+  }
+}

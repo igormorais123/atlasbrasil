@@ -1,0 +1,43 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2802106",
+  "name": "Estância",
+  "generatedAt": "2026-05-04T06:38:52Z",
+  "status": "draft_validated",
+  "files": [
+    {
+      "path": "city-pack.json",
+      "kind": "city_pack",
+      "hash": "abb580380d16e10c141c9a79d613ff7e164d5810ecca33b2744b8903957a66f9"
+    },
+    {
+      "path": "evidence-ledger.json",
+      "kind": "evidence_ledger",
+      "hash": "41ba2cdd2c8005107a9121bd961b91783e3084a44ad465573a2d94a871a112c0"
+    },
+    {
+      "path": "simulations/business-base.json",
+      "kind": "simulation_pack",
+      "hash": "9587942695c0371b089496afec0f23409719f753df2c81405f73de2790800cd1"
+    },
+    {
+      "path": "simulations/domain-screening.json",
+      "kind": "domain_screening",
+      "hash": "a4e076169a0b785b79183eef0bca60324a70a3e08ed5e477e840c18e05019716"
+    }
+  ],
+  "publicationGate": {
+    "schemasValid": true,
+    "securityScanPassed": true,
+    "reviewed": true,
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false,
+    "financialAdvicePublished": false
+  },
+  "limitations": [
+    "Pacote municipal inicial.",
+    "Queda nominal forte exige decomposição setorial.",
+    "Hipóteses de negócio não são recomendação financeira."
+  ]
+}

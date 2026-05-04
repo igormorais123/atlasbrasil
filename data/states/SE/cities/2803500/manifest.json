@@ -1,0 +1,43 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2803500",
+  "name": "Lagarto",
+  "generatedAt": "2026-05-04T06:34:21Z",
+  "status": "draft_validated",
+  "files": [
+    {
+      "path": "city-pack.json",
+      "kind": "city_pack",
+      "hash": "b64cb1f480dbf8cc6f0466ddf0e03cebfbd8230f59591004fa92767eff16baef"
+    },
+    {
+      "path": "evidence-ledger.json",
+      "kind": "evidence_ledger",
+      "hash": "f7b7973735fab18011e1740ca488431ae0fc6e4c97d06c824544ddf1b5251b0d"
+    },
+    {
+      "path": "simulations/business-base.json",
+      "kind": "simulation_pack",
+      "hash": "806760859372178f3ad2ff6560c0c13d8e1ace1a68d9fd07a98c37a5df9de811"
+    },
+    {
+      "path": "simulations/domain-screening.json",
+      "kind": "domain_screening",
+      "hash": "5a00bb8c7e21a9b3666fef832c2ef96b25377b45dd9b492a8d0cc43a58f61540"
+    }
+  ],
+  "publicationGate": {
+    "schemasValid": true,
+    "securityScanPassed": true,
+    "reviewed": true,
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false,
+    "financialAdvicePublished": false
+  },
+  "limitations": [
+    "Pacote municipal inicial.",
+    "Crescimento nominal baixo não é conclusão negativa.",
+    "Hipóteses de negócio não são recomendação financeira."
+  ]
+}

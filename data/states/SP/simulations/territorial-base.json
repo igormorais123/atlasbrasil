@@ -1,0 +1,112 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SP",
+    "level": "state",
+    "name": "São Paulo"
+  },
+  "simulation": {
+    "id": "sp-territorial-scale-001",
+    "type": "territorial",
+    "scenario": "scale_test",
+    "seed": "atlas-sp-m7-2026-05-04",
+    "generatedAt": "2026-05-04T08:00:00Z"
+  },
+  "inputs": {
+    "facts": [
+      {
+        "id": "fact-population-2022",
+        "text": "População residente de 44.411.238 habitantes em 2022.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-4714-pop-2022"]
+      },
+      {
+        "id": "fact-gdp-2023",
+        "text": "PIB corrente de R$ 3.444.814.033.000 em 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-pib-2022-2023"]
+      },
+      {
+        "id": "fact-municipalities",
+        "text": "645 municípios na API pública de localidades do IBGE.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-localidades-municipios-sp"]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "assumption-scale-first",
+        "text": "O primeiro uso de SP deve testar carregamento e leitura regional, não concluir melhora ampla.",
+        "kind": "assumption",
+        "confidence": "media",
+        "sources": []
+      }
+    ],
+    "events": []
+  },
+  "outputs": {
+    "summary": "A simulação de escala indica que São Paulo deve entrar no Atlas Sim como prova de robustez: carregar sob demanda, separar clusters regionais e evitar que a capital determine a leitura do estado inteiro.",
+    "metrics": [
+      {
+        "id": "scale_complexity",
+        "label": "Complexidade de escala",
+        "value": 88,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "territorial_health_score",
+        "label": "Saúde territorial inicial",
+        "value": 58,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "baixa"
+      },
+      {
+        "id": "evidence_coverage",
+        "label": "Cobertura inicial de evidência",
+        "value": 32,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-sp-clusters",
+        "title": "Analisar SP por clusters regionais",
+        "rationale": "O estado é grande demais para conclusão única.",
+        "risk": "Média estadual esconder gargalos e oportunidades locais.",
+        "confidence": "alta"
+      },
+      {
+        "id": "rec-sp-city-pilots",
+        "title": "Usar Campinas como primeira cidade-piloto de escala",
+        "rationale": "Campinas tem porte alto, relevância regional e não é a capital, reduzindo viés metropolitano extremo.",
+        "risk": "Ainda exige setores, renda, emprego e concorrência.",
+        "confidence": "media"
+      }
+    ]
+  },
+  "verifiers": [
+    "schema JSON abre sem erro",
+    "fontes oficiais identificadas",
+    "simulação marcada como simulação",
+    "sem persona bruta"
+  ],
+  "disclaimer": "Esta é uma simulação sintética agregada para teste de escala. Não é diagnóstico final, pesquisa de campo ou recomendação de investimento.",
+  "limitations": [
+    "Resultado inicial e demonstrativo.",
+    "Não substitui estudo regional, econométrico ou setorial.",
+    "O score é uma heurística de interface."
+  ],
+  "sources": [
+    "ibge-sidra-4714-pop-2022",
+    "ibge-sidra-5938-pib-2022-2023",
+    "ibge-localidades-municipios-sp"
+  ]
+}

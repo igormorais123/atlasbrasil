@@ -1,0 +1,173 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "generatedAt": "2026-05-04T06:34:10Z",
+  "title": "Aracaju, Itabaiana, Lagarto e Estância: capital, polos regionais e eixo leste/litoral",
+  "cities": [
+    {
+      "cityId": "2800308",
+      "name": "Aracaju",
+      "role": "capital estadual"
+    },
+    {
+      "cityId": "2802908",
+      "name": "Itabaiana",
+      "role": "polo regional do agreste"
+    },
+    {
+      "cityId": "2803500",
+      "name": "Lagarto",
+      "role": "polo regional do centro-sul/agreste"
+    },
+    {
+      "cityId": "2802106",
+      "name": "Estância",
+      "role": "polo regional do eixo leste/litoral"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "population_2022",
+      "label": "População residente",
+      "unit": "pessoas",
+      "kind": "measured",
+      "values": {
+        "2800308": 602757,
+        "2802908": 103440,
+        "2803500": 101579,
+        "2802106": 65078
+      },
+      "interpretation": "Aracaju tem escala urbana maior; Itabaiana e Lagarto testam polos de população semelhante; Estância adiciona eixo leste/litoral."
+    },
+    {
+      "id": "gdp_current_2023",
+      "label": "PIB corrente",
+      "unit": "R$",
+      "kind": "measured",
+      "values": {
+        "2800308": 22291877000,
+        "2802908": 2942686000,
+        "2803500": 2177825000,
+        "2802106": 1473225000
+      },
+      "interpretation": "Aracaju concentra volume econômico absoluto maior; Itabaiana aparece acima de Lagarto neste recorte."
+    },
+    {
+      "id": "gdp_per_capita_proxy_2023",
+      "label": "PIB corrente por habitante",
+      "unit": "R$/habitante",
+      "kind": "proxy",
+      "values": {
+        "2800308": 36983.19,
+        "2802908": 28448.24,
+        "2803500": 21439.72,
+        "2802106": 22637.83
+      },
+      "interpretation": "Aracaju aparece acima neste proxy, mas a métrica não mostra distribuição de renda."
+    },
+    {
+      "id": "gdp_nominal_growth_2022_2023",
+      "label": "Crescimento nominal do PIB",
+      "unit": "%",
+      "kind": "proxy",
+      "values": {
+        "2800308": 8.19,
+        "2802908": 17.23,
+        "2803500": 2.38,
+        "2802106": -38.19
+      },
+      "interpretation": "Itabaiana mostra sinal nominal mais forte; Estância mostra queda forte e exige red team setorial antes de conclusão."
+    },
+    {
+      "id": "business_readiness",
+      "label": "Prontidão para hipótese de negócio",
+      "unit": "0-100",
+      "kind": "simulation",
+      "values": {
+        "2800308": 48,
+        "2802908": 53,
+        "2803500": 45,
+        "2802106": 38
+      },
+      "interpretation": "Itabaiana ganha sinal como hipótese regional; Estância vira caso de estresse e investigação setorial."
+    }
+  ],
+  "readings": [
+    {
+      "id": "reading-capital-scale",
+      "claim": "Aracaju é melhor para investigar serviços urbanos de capital por escala populacional e volume econômico.",
+      "kind": "inference",
+      "confidence": "media",
+      "limits": [
+        "Faltam dados de bairro, renda, concorrência, fluxo e custos."
+      ]
+    },
+    {
+      "id": "reading-regional-pole",
+      "claim": "Itabaiana é melhor para testar a hipótese de polo regional fora da capital.",
+      "kind": "inference",
+      "confidence": "media",
+      "limits": [
+        "O sinal depende de validação com emprego, comércio, fluxo regional e setores."
+      ]
+    },
+    {
+      "id": "reading-lagarto-context",
+      "claim": "Lagarto é útil para evitar ranking simplista, porque tem população semelhante a Itabaiana com sinal econômico nominal diferente.",
+      "kind": "inference",
+      "confidence": "media",
+      "limits": [
+        "Sem dados setoriais, não é possível concluir se o sinal menor representa fragilidade real ou composição econômica diferente."
+      ]
+    },
+    {
+      "id": "reading-estancia-stress",
+      "claim": "Estância é um caso de estresse econômico nominal que força decomposição setorial antes de qualquer conclusão social.",
+      "kind": "inference",
+      "confidence": "media",
+      "limits": [
+        "Sem decomposição do PIB, emprego, renda e setor, a queda nominal não explica sozinha a cidade."
+      ]
+    },
+    {
+      "id": "reading-no-winner",
+      "claim": "A comparação não define uma cidade melhor em absoluto; define perguntas diferentes para investigação.",
+      "kind": "recommendation",
+      "confidence": "alta",
+      "limits": [
+        "Sem domínio de decisão, ranking absoluto é simplificação indevida."
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Separar decisões por domínio",
+      "action": "Usar Aracaju para serviços urbanos de capital, Itabaiana para comércio regional forte, Lagarto para serviços regionais e Estância para investigação de choque setorial/litoral.",
+      "risk": "Misturar os domínios gera ranking artificial.",
+      "confidence": "media"
+    },
+    {
+      "title": "Adicionar dados setoriais antes de recomendação",
+      "action": "Incluir emprego formal, renda, fluxo, concorrência e custos antes de sugerir farmácia, padaria, clínica ou curso.",
+      "risk": "A hipótese pode virar recomendação financeira indevida.",
+      "confidence": "alta"
+    }
+  ],
+  "limitations": [
+    "Comparação inicial baseada em população, PIB corrente, proxy per capita e simulação heurística.",
+    "PIB corrente e crescimento nominal não são indicadores reais deflacionados.",
+    "Não há dados por bairro, zona comercial, setor, renda, fluxo, concorrência ou custos.",
+    "Não é conselho financeiro nem pesquisa de mercado conclusiva."
+  ],
+  "sources": [
+    "data/states/SE/cities/2800308/city-pack.json",
+    "data/states/SE/cities/2800308/simulations/business-base.json",
+    "data/states/SE/cities/2802908/city-pack.json",
+    "data/states/SE/cities/2802908/simulations/business-base.json",
+    "data/states/SE/cities/2803500/city-pack.json",
+    "data/states/SE/cities/2803500/simulations/business-base.json",
+    "data/states/SE/cities/2802106/city-pack.json",
+    "data/states/SE/cities/2802106/simulations/business-base.json"
+  ],
+  "reportPath": "reports/sergipe/comparacao-aracaju-itabaiana.md"
+}

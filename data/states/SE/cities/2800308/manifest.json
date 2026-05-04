@@ -1,0 +1,43 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2800308",
+  "name": "Aracaju",
+  "generatedAt": "2026-05-04T06:16:23Z",
+  "status": "draft_validated",
+  "files": [
+    {
+      "path": "city-pack.json",
+      "kind": "city_pack",
+      "hash": "c75c8c15a35d4975a4503c4c7ece68365524933aa948a22dd0384f6cffc0080a"
+    },
+    {
+      "path": "evidence-ledger.json",
+      "kind": "evidence_ledger",
+      "hash": "110da0c8aa2341c73fd2bf2ed35faf33072f39786863b466a1f7b4ad97cb189a"
+    },
+    {
+      "path": "simulations/business-base.json",
+      "kind": "simulation_pack",
+      "hash": "5c4ba25a7e4a4154f8df092f2c35e3443bccf946b7499a4596487de134f9db00"
+    },
+    {
+      "path": "simulations/domain-screening.json",
+      "kind": "domain_screening",
+      "hash": "17ed5010e52fe2ac375f9a1d33d249f6ab292cd134e756e29ce998d9f174230d"
+    }
+  ],
+  "publicationGate": {
+    "schemasValid": true,
+    "securityScanPassed": true,
+    "reviewed": true,
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false,
+    "financialAdvicePublished": false
+  },
+  "limitations": [
+    "Pacote municipal inicial.",
+    "Hipóteses de negócio não são recomendação financeira.",
+    "Manifest deve ser regenerado sempre que qualquer arquivo do pacote mudar."
+  ]
+}

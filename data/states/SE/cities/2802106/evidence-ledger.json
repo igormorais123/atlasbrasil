@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2802106",
+  "name": "Estância",
+  "generatedAt": "2026-05-04T06:38:52Z",
+  "claimTypes": ["factual", "inference", "simulation", "recommendation"],
+  "entries": [
+    {
+      "id": "ev-estancia-001",
+      "claimId": "claim-estancia-pop-2022",
+      "kind": "factual",
+      "claim": "Estância tinha 65.078 habitantes no Censo Demográfico 2022.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-4714-estancia-pop-2022"],
+      "limits": ["População não mede sozinha dinamismo econômico ou qualidade de vida."]
+    },
+    {
+      "id": "ev-estancia-002",
+      "claimId": "claim-estancia-pib-2023",
+      "kind": "factual",
+      "claim": "O PIB corrente de Estância em 2023 foi de R$ 1.473.225.000.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-estancia-pib-2002-2023"],
+      "limits": ["Valor corrente, sem deflação e sem distribuição setorial ou territorial."]
+    },
+    {
+      "id": "ev-estancia-003",
+      "claimId": "claim-estancia-growth",
+      "kind": "factual",
+      "claim": "O PIB corrente de Estância caiu nominalmente 38,19% entre 2022 e 2023.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-estancia-pib-2002-2023"],
+      "limits": ["Queda nominal exige investigação setorial antes de conclusão social ampla."]
+    },
+    {
+      "id": "ev-estancia-004",
+      "claimId": "claim-estancia-axis",
+      "kind": "inference",
+      "claim": "Estância é útil para introduzir o eixo leste/litoral na comparação sergipana.",
+      "evidenceLevel": "expert_interpretation",
+      "confidence": "media",
+      "sources": ["ibge-localidades-estancia"],
+      "limits": ["A inferência exige dados de turismo, indústria, emprego, renda e serviços para ganhar confiança."]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-estancia-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente de Estância, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/2802106/v/93/p/2022",
+      "accessedAt": "2026-05-04T06:38:52Z"
+    },
+    {
+      "id": "ibge-sidra-5938-estancia-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - PIB corrente de Estância",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/2802106/v/37/p/all",
+      "accessedAt": "2026-05-04T06:38:52Z"
+    },
+    {
+      "id": "ibge-localidades-estancia",
+      "label": "IBGE API de Localidades - Município de Estância",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/2802106",
+      "accessedAt": "2026-05-04T06:38:52Z"
+    }
+  ]
+}

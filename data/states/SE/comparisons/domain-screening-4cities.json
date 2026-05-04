@@ -1,0 +1,192 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "generatedAt": "2026-05-04T07:20:00Z",
+  "title": "Matriz de decisão por domínio: Aracaju, Itabaiana, Lagarto e Estância",
+  "cities": [
+    {
+      "cityId": "2800308",
+      "name": "Aracaju",
+      "role": "capital estadual"
+    },
+    {
+      "cityId": "2802908",
+      "name": "Itabaiana",
+      "role": "polo regional do agreste"
+    },
+    {
+      "cityId": "2803500",
+      "name": "Lagarto",
+      "role": "polo regional do centro-sul/agreste"
+    },
+    {
+      "cityId": "2802106",
+      "name": "Estância",
+      "role": "polo regional do eixo leste/litoral"
+    }
+  ],
+  "domains": [
+    {
+      "id": "pharmacy",
+      "label": "Farmácia",
+      "leaderCityId": "2800308",
+      "stance": "investigar",
+      "interpretation": "Aracaju lidera pela escala de capital; Itabaiana vem próxima como hipótese regional. O próximo passo público é bairro, idade, renda, fluxo e concorrência.",
+      "values": {
+        "2800308": {
+          "readiness": 52,
+          "evidence": 36,
+          "stance": "investigar",
+          "confidence": "media"
+        },
+        "2802908": {
+          "readiness": 50,
+          "evidence": 34,
+          "stance": "investigar",
+          "confidence": "media"
+        },
+        "2803500": {
+          "readiness": 44,
+          "evidence": 31,
+          "stance": "faltam_dados",
+          "confidence": "baixa"
+        }
+      },
+      "missingData": ["bairros", "idade", "renda", "concorrência", "fluxo", "acesso a saúde"]
+    },
+    {
+      "id": "bakery",
+      "label": "Padaria",
+      "leaderCityId": "2800308",
+      "stance": "investigar",
+      "interpretation": "Aracaju lidera pela escala urbana; Itabaiana é hipótese regional. Estância aparece como alerta de cautela até entender renda, fluxo e choque econômico nominal.",
+      "values": {
+        "2800308": {
+          "readiness": 50,
+          "evidence": 34,
+          "stance": "investigar",
+          "confidence": "media"
+        },
+        "2802908": {
+          "readiness": 48,
+          "evidence": 33,
+          "stance": "investigar",
+          "confidence": "media"
+        },
+        "2802106": {
+          "readiness": 37,
+          "evidence": 29,
+          "stance": "risco_alto",
+          "confidence": "baixa"
+        }
+      },
+      "missingData": ["densidade residencial", "fluxo diário", "concorrência", "aluguel", "renda"]
+    },
+    {
+      "id": "clinic",
+      "label": "Clínica",
+      "leaderCityId": "2800308",
+      "stance": "investigar",
+      "interpretation": "Aracaju lidera por concentração urbana e serviços de capital; Lagarto e Estância só devem avançar após mapa de especialidades, rede SUS, planos e renda.",
+      "values": {
+        "2800308": {
+          "readiness": 51,
+          "evidence": 33,
+          "stance": "investigar",
+          "confidence": "media"
+        },
+        "2803500": {
+          "readiness": 47,
+          "evidence": 32,
+          "stance": "faltam_dados",
+          "confidence": "baixa"
+        },
+        "2802106": {
+          "readiness": 40,
+          "evidence": 30,
+          "stance": "faltam_dados",
+          "confidence": "baixa"
+        }
+      },
+      "missingData": ["idade", "especialidades existentes", "SUS", "planos", "renda", "regulação"]
+    },
+    {
+      "id": "technical_course",
+      "label": "Curso técnico",
+      "leaderCityId": "2802908",
+      "stance": "investigar",
+      "interpretation": "Itabaiana lidera como hipótese de formação técnica regional; Aracaju tem escala, mas faltam setores empregadores. Estância exige red team setorial antes de qualquer curso.",
+      "values": {
+        "2802908": {
+          "readiness": 54,
+          "evidence": 35,
+          "stance": "investigar",
+          "confidence": "media"
+        },
+        "2800308": {
+          "readiness": 49,
+          "evidence": 32,
+          "stance": "faltam_dados",
+          "confidence": "baixa"
+        },
+        "2803500": {
+          "readiness": 46,
+          "evidence": 32,
+          "stance": "faltam_dados",
+          "confidence": "baixa"
+        },
+        "2802106": {
+          "readiness": 39,
+          "evidence": 30,
+          "stance": "risco_alto",
+          "confidence": "baixa"
+        }
+      },
+      "missingData": ["emprego formal", "setores empregadores", "vagas", "salários", "perfil jovem", "concorrentes educacionais"]
+    },
+    {
+      "id": "technical_career",
+      "label": "Carreira técnica",
+      "leaderCityId": "2802908",
+      "stance": "investigar",
+      "interpretation": "Itabaiana é a única cidade do piloto com sinal público inicial para carreira técnica; ainda depende de ocupações, salários e vagas formais.",
+      "values": {
+        "2802908": {
+          "readiness": 52,
+          "evidence": 34,
+          "stance": "investigar",
+          "confidence": "media"
+        }
+      },
+      "missingData": ["CAGED/RAIS", "ocupações", "salários", "vagas", "empregabilidade"]
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Separar pergunta de voto, negócio e carreira",
+      "action": "Usar a matriz por domínio para gerar hipóteses distintas e impedir ranking municipal único.",
+      "risk": "Um ranking geral esconderia que farmácia, padaria, clínica e curso técnico dependem de sinais diferentes.",
+      "confidence": "alta"
+    },
+    {
+      "title": "Avançar para dados setoriais oficiais",
+      "action": "Priorizar RAIS/CAGED, CNES, escolas/cursos, renda, idade, bairros, concorrência e fluxo antes de recomendar decisão prática.",
+      "risk": "Sem esses dados, a saída deve permanecer como triagem investigativa.",
+      "confidence": "alta"
+    }
+  ],
+  "limitations": [
+    "Matriz baseada em triagens sintéticas agregadas já publicadas nos pacotes municipais.",
+    "Não há dados de bairro, concorrência, custos, renda detalhada, oferta setorial ou fluxo real.",
+    "As pontuações não são recomendação financeira, médica, educacional ou de investimento.",
+    "Ausência de uma cidade em um domínio significa falta de triagem pública inicial, não ausência de oportunidade."
+  ],
+  "sources": [
+    "data/states/SE/cities/2800308/simulations/domain-screening.json",
+    "data/states/SE/cities/2802908/simulations/domain-screening.json",
+    "data/states/SE/cities/2803500/simulations/domain-screening.json",
+    "data/states/SE/cities/2802106/simulations/domain-screening.json",
+    "data/states/SE/comparisons/aracaju-itabaiana.json"
+  ],
+  "reportPath": "reports/sergipe/triagem-dominio-4cidades.md"
+}

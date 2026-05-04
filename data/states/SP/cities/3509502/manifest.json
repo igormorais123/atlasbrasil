@@ -1,0 +1,42 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "cityId": "3509502",
+  "name": "Campinas",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "status": "draft_validated",
+  "files": [
+    {
+      "path": "city-pack.json",
+      "kind": "city_pack",
+      "hash": "41869e625004957b8832363eebc0cfe6ad8fff7186fd2c8778af2ae1b45a7d51"
+    },
+    {
+      "path": "evidence-ledger.json",
+      "kind": "evidence_ledger",
+      "hash": "d4cddce8e4a28f3f24df63469c87cd4416a33d8f7074ac492047785ed61877d5"
+    },
+    {
+      "path": "simulations/business-base.json",
+      "kind": "simulation_pack",
+      "hash": "4e458356cf574bc4402f9b358a7cee69ccfeb1d3921bc446ac21c4a18ba97d8c"
+    },
+    {
+      "path": "simulations/domain-screening.json",
+      "kind": "domain_screening",
+      "hash": "ecf88a66140472d9f4c7c8554cd7ef103d24f63cdfbb2c0a3515e64f94272330"
+    }
+  ],
+  "publicationGate": {
+    "schemasValid": true,
+    "securityScanPassed": true,
+    "reviewed": true,
+    "rawPersonasPublished": false,
+    "privateArtifactsPublished": false
+  },
+  "limitations": [
+    "Pacote municipal inicial.",
+    "Triagens são hipóteses investigativas.",
+    "Manifest deve ser regenerado sempre que qualquer arquivo do pacote mudar."
+  ]
+}

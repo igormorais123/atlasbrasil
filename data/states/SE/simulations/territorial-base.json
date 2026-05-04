@@ -1,0 +1,119 @@
+{
+  "version": "0.1.0",
+  "scope": {
+    "uf": "SE",
+    "level": "state",
+    "name": "Sergipe"
+  },
+  "simulation": {
+    "id": "se-territorial-base-001",
+    "type": "territorial",
+    "scenario": "base",
+    "seed": "atlas-se-m1-2026-05-04",
+    "generatedAt": "2026-05-04T05:57:54Z"
+  },
+  "inputs": {
+    "facts": [
+      {
+        "id": "fact-population-2022",
+        "text": "População residente de 2.210.004 habitantes em 2022.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-4714-pop-2022"]
+      },
+      {
+        "id": "fact-gdp-2023",
+        "text": "PIB corrente de R$ 60.816.662.000 em 2023.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-sidra-5938-pib-2002-2023"]
+      },
+      {
+        "id": "fact-municipalities",
+        "text": "75 municípios na API pública de localidades do IBGE.",
+        "kind": "factual",
+        "confidence": "alta",
+        "sources": ["ibge-localidades-municipios-se"]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "assumption-state-first",
+        "text": "A primeira simulação deve operar no nível estadual e indicar onde a granularidade municipal será necessária.",
+        "kind": "assumption",
+        "confidence": "media",
+        "sources": []
+      },
+      {
+        "id": "assumption-conservative-verdict",
+        "text": "Sem séries setoriais suficientes, o veredito público deve permanecer conservador.",
+        "kind": "assumption",
+        "confidence": "media",
+        "sources": []
+      }
+    ],
+    "events": []
+  },
+  "outputs": {
+    "summary": "A simulação territorial base sugere usar Sergipe como piloto de profundidade, mantendo veredito inconclusivo até incorporar séries setoriais. O principal valor imediato é demonstrar método, rastreabilidade e separação entre fato, inferência e simulação.",
+    "metrics": [
+      {
+        "id": "maturity_score",
+        "label": "Maturidade do pacote M1",
+        "value": 42,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      },
+      {
+        "id": "territorial_health_score",
+        "label": "Saúde territorial inicial",
+        "value": 52,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "baixa"
+      },
+      {
+        "id": "evidence_coverage",
+        "label": "Cobertura inicial de evidência",
+        "value": 35,
+        "unit": "0-100",
+        "kind": "simulation",
+        "confidence": "media"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "rec-add-sector-series",
+        "title": "Adicionar séries setoriais antes do veredito final",
+        "rationale": "População, PIB corrente e número de municípios são suficientes para abrir o piloto, mas não para afirmar melhora ampla.",
+        "risk": "Overclaim de IA se a conclusão for apresentada como diagnóstico completo.",
+        "confidence": "alta"
+      },
+      {
+        "id": "rec-municipal-poles",
+        "title": "Abrir city packs para Aracaju e municípios-polo",
+        "rationale": "Sergipe é pequeno o suficiente para testar leitura municipal sem criar uma megalópole como primeiro caso.",
+        "risk": "O nível estadual pode esconder oportunidades locais.",
+        "confidence": "media"
+      }
+    ]
+  },
+  "verifiers": [
+    "schemas JSON abrem sem erro",
+    "fontes oficiais identificadas",
+    "varredura de segurança sem marcador sensível",
+    "simulação marcada como simulação"
+  ],
+  "disclaimer": "Esta é uma simulação sintética agregada, não uma pesquisa de campo, pesquisa eleitoral ou medição direta de opinião pública.",
+  "limitations": [
+    "Resultado inicial e demonstrativo.",
+    "Não substitui estudo econométrico, pesquisa de campo ou avaliação de política pública.",
+    "O score de saúde territorial é uma heurística de interface para orientar investigação, não um indicador oficial."
+  ],
+  "sources": [
+    "ibge-sidra-4714-pop-2022",
+    "ibge-sidra-5938-pib-2002-2023",
+    "ibge-localidades-municipios-se"
+  ]
+}

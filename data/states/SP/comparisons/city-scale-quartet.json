@@ -1,0 +1,131 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "generatedAt": "2026-05-04T09:00:00Z",
+  "title": "São Paulo, Campinas, Ribeirão Preto e Bauru: capital, metrópole regional e interior",
+  "cities": [
+    {
+      "cityId": "3550308",
+      "name": "São Paulo",
+      "role": "capital metropolitana"
+    },
+    {
+      "cityId": "3509502",
+      "name": "Campinas",
+      "role": "polo metropolitano regional"
+    },
+    {
+      "cityId": "3543402",
+      "name": "Ribeirão Preto",
+      "role": "polo regional agro-serviços"
+    },
+    {
+      "cityId": "3506003",
+      "name": "Bauru",
+      "role": "polo regional interiorano"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "population_2022",
+      "label": "População residente",
+      "unit": "pessoas",
+      "kind": "measured",
+      "values": {
+        "3550308": 11451999,
+        "3509502": 1139047,
+        "3543402": 698642,
+        "3506003": 379146
+      },
+      "interpretation": "A capital domina a escala absoluta; Campinas, Ribeirão Preto e Bauru testam polos de porte decrescente."
+    },
+    {
+      "id": "gdp_current_2023",
+      "label": "PIB corrente",
+      "unit": "R$",
+      "kind": "measured",
+      "values": {
+        "3550308": 1066825105000,
+        "3509502": 91968328000,
+        "3543402": 52306820000,
+        "3506003": 20654759000
+      },
+      "interpretation": "São Paulo concentra volume econômico extremo; as demais cidades permitem testar leitura de polos fora da capital."
+    },
+    {
+      "id": "gdp_per_capita_proxy_2023",
+      "label": "PIB corrente por habitante",
+      "unit": "R$/habitante",
+      "kind": "proxy",
+      "values": {
+        "3550308": 93157.99,
+        "3509502": 80742.79,
+        "3543402": 74874.98,
+        "3506003": 54478.37
+      },
+      "interpretation": "O proxy sugere alta densidade econômica, mas não mostra renda domiciliar nem desigualdade."
+    },
+    {
+      "id": "gdp_nominal_growth_2022_2023",
+      "label": "Crescimento nominal do PIB",
+      "unit": "%",
+      "kind": "proxy",
+      "values": {
+        "3550308": 12.78,
+        "3509502": 14.04,
+        "3543402": 10.27,
+        "3506003": 10.97
+      },
+      "interpretation": "Campinas aparece com sinal nominal mais forte no recorte; a leitura precisa de deflator e setores."
+    },
+    {
+      "id": "scale_readiness",
+      "label": "Prontidão para piloto de escala",
+      "unit": "0-100",
+      "kind": "simulation",
+      "values": {
+        "3550308": 62,
+        "3509502": 64,
+        "3543402": 55,
+        "3506003": 50
+      },
+      "interpretation": "Campinas é melhor primeira cidade-piloto por combinar escala alta e menor complexidade que a capital."
+    }
+  ],
+  "readings": [
+    {
+      "id": "reading-capital-stress",
+      "claim": "São Paulo capital deve ser tratada como stress test extremo, não como primeira cidade de recomendação prática.",
+      "kind": "inference",
+      "confidence": "media",
+      "limits": ["A capital exige dados intramunicipais e bairros antes de qualquer conclusão."]
+    },
+    {
+      "id": "reading-campinas-pilot",
+      "claim": "Campinas é a melhor primeira cidade-piloto paulista para escala pública controlada.",
+      "kind": "recommendation",
+      "confidence": "media",
+      "limits": ["Ainda faltam emprego, renda, saúde, educação, setores e concorrência."]
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Priorizar Campinas antes da capital",
+      "action": "Usar Campinas para validar UI, city pack e triagens setoriais em SP antes de São Paulo capital.",
+      "risk": "Começar pela capital pode gerar complexidade visual e metodológica excessiva.",
+      "confidence": "media"
+    }
+  ],
+  "limitations": [
+    "Comparação inicial baseada em população, PIB corrente, proxy per capita e simulação heurística.",
+    "PIB corrente e crescimento nominal não são indicadores reais deflacionados.",
+    "Não há dados por bairro, renda, emprego formal, saúde, educação, segurança ou concorrência.",
+    "Não é conselho financeiro nem pesquisa de mercado conclusiva."
+  ],
+  "sources": [
+    "IBGE/SIDRA Tabela 4714",
+    "IBGE/SIDRA Tabela 5938",
+    "data/states/SP/cities/3509502/city-pack.json"
+  ],
+  "reportPath": "reports/sao-paulo/comparacao-cidades-escala.md"
+}

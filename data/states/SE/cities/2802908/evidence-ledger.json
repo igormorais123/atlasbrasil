@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "uf": "SE",
+  "cityId": "2802908",
+  "name": "Itabaiana",
+  "generatedAt": "2026-05-04T06:26:42Z",
+  "claimTypes": ["factual", "inference", "simulation", "recommendation"],
+  "entries": [
+    {
+      "id": "ev-itabaiana-001",
+      "claimId": "claim-itabaiana-pop-2022",
+      "kind": "factual",
+      "claim": "Itabaiana tinha 103.440 habitantes no Censo Demográfico 2022.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-4714-itabaiana-pop-2022"],
+      "limits": ["População não mede sozinha dinamismo econômico ou qualidade de vida."]
+    },
+    {
+      "id": "ev-itabaiana-002",
+      "claimId": "claim-itabaiana-pib-2023",
+      "kind": "factual",
+      "claim": "O PIB corrente de Itabaiana em 2023 foi de R$ 2.942.686.000.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-itabaiana-pib-2002-2023"],
+      "limits": ["Valor corrente, sem deflação e sem distribuição setorial ou territorial."]
+    },
+    {
+      "id": "ev-itabaiana-003",
+      "claimId": "claim-itabaiana-growth",
+      "kind": "factual",
+      "claim": "O PIB corrente de Itabaiana cresceu nominalmente 17,23% entre 2022 e 2023.",
+      "evidenceLevel": "primary_official",
+      "confidence": "alta",
+      "sources": ["ibge-sidra-5938-itabaiana-pib-2002-2023"],
+      "limits": ["Crescimento nominal não desconta inflação nem prova ganho real de renda."]
+    },
+    {
+      "id": "ev-itabaiana-004",
+      "claimId": "claim-itabaiana-polo",
+      "kind": "inference",
+      "claim": "Itabaiana é um bom segundo city pack por representar uma centralidade regional fora da capital.",
+      "evidenceLevel": "expert_interpretation",
+      "confidence": "media",
+      "sources": ["ibge-localidades-itabaiana", "ibge-sidra-5938-itabaiana-pib-2002-2023"],
+      "limits": ["A inferência exige dados de fluxo, comércio, emprego e conexões regionais para ganhar confiança."]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-itabaiana-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente de Itabaiana, Censo Demográfico 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/2802908/v/93/p/2022",
+      "accessedAt": "2026-05-04T06:26:42Z"
+    },
+    {
+      "id": "ibge-sidra-5938-itabaiana-pib-2002-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - PIB corrente de Itabaiana",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/2802908/v/37/p/all",
+      "accessedAt": "2026-05-04T06:26:42Z"
+    },
+    {
+      "id": "ibge-localidades-itabaiana",
+      "label": "IBGE API de Localidades - Município de Itabaiana",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/2802908",
+      "accessedAt": "2026-05-04T06:26:42Z"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "generatedAt": "2026-05-04T09:00:00Z",
+  "cards": [
+    {
+      "id": "sp-campinas-technical-course",
+      "label": "Curso técnico em Campinas",
+      "domain": "educacao_profissional",
+      "score": 57,
+      "stance": "investigar",
+      "why": "Cidade-polo de grande porte com sinal econômico forte, mas sem RAIS/CAGED ainda.",
+      "nextValidation": "Cruzar RAIS/CAGED, instituições concorrentes, mensalidade, vagas e empregabilidade.",
+      "risk": "Curso desalinhado ao setor empregador local pode gerar baixa conversão.",
+      "confidence": "media"
+    },
+    {
+      "id": "sp-campinas-clinic",
+      "label": "Clínica em Campinas",
+      "domain": "saude",
+      "score": 55,
+      "stance": "investigar",
+      "why": "Escala urbana sustenta hipótese, mas a decisão depende de especialidade, renda, plano e oferta existente.",
+      "nextValidation": "Adicionar CNES, especialidades, planos, renda e mapa de concorrência.",
+      "risk": "Sem lacuna de oferta, a hipótese pode superestimar demanda.",
+      "confidence": "media"
+    },
+    {
+      "id": "sp-capital-stress-test",
+      "label": "Capital como stress test",
+      "domain": "produto",
+      "score": 62,
+      "stance": "faltam_dados",
+      "why": "A capital é útil para performance e granularidade, mas complexa demais para primeira recomendação prática.",
+      "nextValidation": "Quebrar por zona, subprefeitura, renda, mobilidade e oferta setorial.",
+      "risk": "Média municipal da capital pode esconder realidades opostas.",
+      "confidence": "media"
+    },
+    {
+      "id": "sp-interior-poles",
+      "label": "Polos do interior",
+      "domain": "expansao_city_packs",
+      "score": 54,
+      "stance": "investigar",
+      "why": "Ribeirão Preto e Bauru ajudam a testar interior de porte médio e menor dependência metropolitana.",
+      "nextValidation": "Criar city packs com setores, emprego, saúde, educação e renda.",
+      "risk": "Sem decomposição setorial, polos diferentes parecem iguais.",
+      "confidence": "baixa"
+    }
+  ],
+  "disclaimer": "Cards de oportunidade são triagens sintéticas agregadas. Não são conselho financeiro, recomendação de investimento ou pesquisa de mercado conclusiva.",
+  "limitations": [
+    "Sem dados intramunicipais.",
+    "Sem emprego formal por setor.",
+    "Sem renda e concorrência.",
+    "Scores são hipóteses de priorização, não decisões finais."
+  ],
+  "sources": [
+    "data/states/SP/state-pack.json",
+    "data/states/SP/comparisons/city-scale-quartet.json",
+    "data/states/SP/cities/3509502/simulations/domain-screening.json"
+  ]
+}

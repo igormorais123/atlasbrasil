@@ -1,0 +1,93 @@
+{
+  "version": "0.1.0",
+  "uf": "SP",
+  "cityId": "3509502",
+  "name": "Campinas",
+  "generatedAt": "2026-05-04T08:00:00Z",
+  "territorialHealthScore": 57,
+  "verdict": "inconclusivo",
+  "confidence": "media",
+  "indicators": [
+    {
+      "id": "population_2022",
+      "label": "População residente",
+      "value": 1139047,
+      "unit": "pessoas",
+      "year": 2022,
+      "kind": "measured",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-4714-campinas-pop-2022"]
+    },
+    {
+      "id": "gdp_current_2023",
+      "label": "PIB corrente",
+      "value": 91968328000,
+      "unit": "R$",
+      "year": 2023,
+      "kind": "measured",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-campinas-pib-2022-2023"]
+    },
+    {
+      "id": "gdp_per_capita_proxy_2023",
+      "label": "PIB corrente por habitante",
+      "value": 80742.79,
+      "unit": "R$/habitante",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "unknown",
+      "sources": ["ibge-sidra-5938-campinas-pib-2022-2023", "ibge-sidra-4714-campinas-pop-2022"]
+    },
+    {
+      "id": "gdp_nominal_growth_2022_2023",
+      "label": "Crescimento nominal do PIB",
+      "value": 14.04,
+      "unit": "%",
+      "year": 2023,
+      "kind": "proxy",
+      "direction": "up",
+      "sources": ["ibge-sidra-5938-campinas-pib-2022-2023"]
+    }
+  ],
+  "diagnostics": {
+    "strengths": [
+      "Cidade-polo de grande porte fora da capital.",
+      "PIB corrente e população permitem stress test municipal de escala.",
+      "Bom candidato para testar carreira técnica, saúde e serviços urbanos com dados setoriais futuros."
+    ],
+    "weaknesses": [
+      "Pacote inicial não tem dados de bairros, renda, emprego formal, saúde, educação e concorrência.",
+      "PIB por habitante é proxy e não mostra distribuição de renda.",
+      "Recomendações práticas dependem de setores e microterritório."
+    ],
+    "opportunities": [
+      "Abrir primeira trilha de cidade-polo paulista.",
+      "Comparar Campinas com capital e polos do interior.",
+      "Adicionar RAIS/CAGED, CNES e educação técnica na próxima fase."
+    ],
+    "risks": [
+      "Assumir que porte econômico resolve demanda local.",
+      "Ignorar bairros e eixos de mobilidade.",
+      "Misturar oportunidade de carreira, negócio e política pública."
+    ],
+    "limitations": [
+      "Veredito municipal inconclusivo.",
+      "Pacote inicial usa população e PIB corrente.",
+      "Triagens devem ser interpretadas como hipóteses, não recomendação."
+    ]
+  },
+  "sources": [
+    {
+      "id": "ibge-sidra-4714-campinas-pop-2022",
+      "label": "IBGE/SIDRA Tabela 4714 - População residente, Campinas, Censo 2022",
+      "url": "https://apisidra.ibge.gov.br/values/t/4714/n6/3509502/v/93/p/2022",
+      "accessedAt": "2026-05-04T08:00:00Z"
+    },
+    {
+      "id": "ibge-sidra-5938-campinas-pib-2022-2023",
+      "label": "IBGE/SIDRA Tabela 5938 - PIB corrente, Campinas",
+      "url": "https://apisidra.ibge.gov.br/values/t/5938/n6/3509502/v/37/p/2022,2023",
+      "accessedAt": "2026-05-04T08:00:00Z"
+    }
+  ]
+}

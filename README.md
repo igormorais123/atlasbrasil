@@ -48,6 +48,8 @@ O registro de publicação do PR está em [`reports/PUBLICACAO_PR_ATLAS_SIM_2026
 
 O resumo visual em HTML para apresentar ao criador está em [`reports/ATLAS_SIM_OVERVIEW_CRIADOR.html`](reports/ATLAS_SIM_OVERVIEW_CRIADOR.html).
 
+A estimativa de tokens, tempo e custo equivalente API está em [`reports/CUSTO_ESTIMADO_ATLAS_SIM_2026-05-04.md`](reports/CUSTO_ESTIMADO_ATLAS_SIM_2026-05-04.md).
+
 A metodologia pública compartilhável da INTEIA está em [`docs/METODOLOGIA_PUBLICA_INTEIA.md`](docs/METODOLOGIA_PUBLICA_INTEIA.md).
 
 O parecer final de validação e aprovação documental Helena/Efesto está em [`docs/PARECER_APROVACAO_EXECUCAO.md`](docs/PARECER_APROVACAO_EXECUCAO.md).

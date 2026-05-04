@@ -410,6 +410,7 @@
       <a href="#como-usar">Como usar</a>
       <a href="#dados">Dados e arquivos</a>
       <a href="#seguranca">Segurança</a>
+      <a href="#investimento">Investimento</a>
       <a href="#validacao">Validação</a>
       <a href="#proximos-passos">Próximos passos</a>
     </nav>
@@ -689,6 +690,92 @@
       <div class="callout" style="margin-top: 16px;">
         <strong class="warn">Regra central:</strong>
         <p>O Atlas público mostra a superfície compartilhável da tecnologia. O motor privado INTEIA permanece protegido. A ponte é feita por pacote sanitizado, schema, manifest e evidence ledger.</p>
+      </div>
+    </section>
+
+    <section id="investimento">
+      <h2>Investimento estimado de IA</h2>
+      <p>
+        Não encontrei um contador local confiável de tokens totais da sessão. Por isso, esta seção usa uma estimativa auditável:
+        tamanho do produto final, volume de iteração, leituras de arquivos, testes, saídas geradas e preço oficial de referência do GPT-5.5.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <small>Produto agregado ao repo</small>
+          <div class="metric">116</div>
+          <p>Arquivos tocados/adicionados no PR, com aproximadamente 15.033 linhas e 507 mil caracteres de conteúdo final.</p>
+        </article>
+        <article class="card">
+          <small>Tokens do artefato final</small>
+          <div class="metric">72k-127k</div>
+          <p>Faixa estimada só para os arquivos finais, usando aproximação por palavras e por caracteres.</p>
+        </article>
+        <article class="card">
+          <small>Tokens de trabalho estimados</small>
+          <div class="metric">1,45M-2,65M</div>
+          <p>Inclui contexto lido, respostas, raciocínio/saídas, comandos, auditoria, navegador, revisões e documentação.</p>
+        </article>
+        <article class="card">
+          <small>Tempo decorrido</small>
+          <div class="metric">13h+</div>
+          <p>Entre o primeiro pacote público gerado e a documentação visual final. Tempo ativo humano/IA é menor que o tempo de relógio.</p>
+        </article>
+      </div>
+
+      <div class="diagram" style="margin-top: 16px;">
+        <svg viewBox="0 0 980 360" role="img" aria-label="Estimativa de tokens e custo do projeto" style="width:100%; min-width:760px; height:auto;">
+          <rect x="0" y="0" width="980" height="360" rx="12" fill="#0b1513" />
+          <text x="28" y="42" fill="#edf7f2" font-size="24" font-weight="800">Tokens e custo equivalente API</text>
+          <text x="28" y="70" fill="#a8bbb2" font-size="13">Estimativa, não medição oficial de cobrança</text>
+
+          <text x="28" y="124" fill="#edf7f2" font-size="14" font-weight="800">Input/contexto</text>
+          <rect x="180" y="106" width="520" height="26" rx="6" fill="rgba(81,209,194,.16)" stroke="rgba(81,209,194,.5)" />
+          <rect x="180" y="106" width="430" height="26" rx="6" fill="#51d1c2" opacity=".75" />
+          <text x="720" y="125" fill="#edf7f2" font-size="14">1,2M-2,2M</text>
+
+          <text x="28" y="174" fill="#edf7f2" font-size="14" font-weight="800">Output + raciocínio</text>
+          <rect x="180" y="156" width="520" height="26" rx="6" fill="rgba(169,214,92,.16)" stroke="rgba(169,214,92,.5)" />
+          <rect x="180" y="156" width="195" height="26" rx="6" fill="#a9d65c" opacity=".82" />
+          <text x="720" y="175" fill="#edf7f2" font-size="14">250k-450k</text>
+
+          <text x="28" y="224" fill="#edf7f2" font-size="14" font-weight="800">Artefato final</text>
+          <rect x="180" y="206" width="520" height="26" rx="6" fill="rgba(230,193,93,.16)" stroke="rgba(230,193,93,.5)" />
+          <rect x="180" y="206" width="115" height="26" rx="6" fill="#e6c15d" opacity=".85" />
+          <text x="720" y="225" fill="#edf7f2" font-size="14">72k-127k</text>
+
+          <line x1="28" y1="260" x2="930" y2="260" stroke="rgba(237,247,242,.16)" />
+          <text x="28" y="294" fill="#edf7f2" font-size="17" font-weight="800">Custo equivalente GPT-5.5 API</text>
+          <text x="28" y="322" fill="#a8bbb2" font-size="13">Com preço oficial: US$5/M input, US$0,50/M cached input, US$30/M output.</text>
+          <text x="615" y="302" fill="#a9d65c" font-size="28" font-weight="900">US$ 10-25</text>
+          <text x="615" y="330" fill="#a8bbb2" font-size="13">aprox. R$ 50-125 com USD/BRL perto de 4,98</text>
+        </svg>
+      </div>
+
+      <div class="grid" style="margin-top: 16px;">
+        <article class="card">
+          <small>Cenário com cache</small>
+          <h3>US$ 10-18</h3>
+          <p>Assume que parte relevante do contexto repetido foi cobrada como cached input. É o cenário mais provável em sessões longas.</p>
+        </article>
+        <article class="card">
+          <small>Cenário sem cache</small>
+          <h3>US$ 14-25</h3>
+          <p>Assume cobrança cheia de input em toda iteração. É uma borda superior conservadora para o custo equivalente.</p>
+        </article>
+        <article class="card">
+          <small>Em reais</small>
+          <h3>R$ 50-125</h3>
+          <p>Conversão aproximada usando dólar perto de R$ 4,98. Varia com câmbio, cache e tokens reais da plataforma.</p>
+        </article>
+      </div>
+
+      <div class="callout" style="margin-top: 16px;">
+        <strong class="warn">Importante:</strong>
+        <p>
+          Este valor é custo equivalente de API, não necessariamente a cobrança real do Codex/ChatGPT.
+          A plataforma pode ter cache, plano, créditos, limites e contabilização própria. Sem log oficial de uso,
+          o número correto deve ser tratado como faixa estimada.
+        </p>
       </div>
     </section>
 
